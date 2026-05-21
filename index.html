@@ -81,23 +81,16 @@
       position:fixed;
       inset:0;
       z-index:-1;
-    
+
       background:
         linear-gradient(
-          to bottom,
-          rgba(248,238,244,.12),
-          rgba(13,18,34,var(--night-opacity))
-        ),
-    
-        linear-gradient(
           to right,
-          rgba(206,149,176,.26),
-          rgba(43,67,101,.16),
-          rgba(206,149,176,.26)
+          rgba(206,149,176,.34),
+          rgba(43,67,101,.18),
+          rgba(206,149,176,.34)
         );
-    
+
       pointer-events:none;
-      transition:background .18s linear;
     }
 
     .container{
@@ -415,6 +408,13 @@
       font-size:24px;
     }
 
+    .mini-icon img{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+      display:block;
+    }
+
     .rule-row h3{
       color:var(--night-navy);
 
@@ -583,6 +583,13 @@
       font-weight:500;
     }
 
+    header,
+    main,
+    footer{
+      position:relative;
+      z-index:1;
+    }
+
     .footer-deco{
       margin-top:12px;
 
@@ -597,26 +604,30 @@
     .snow-sparkles{
       position:fixed;
       inset:0;
-      z-index:-1;
+      z-index:0;
       pointer-events:none;
       overflow:hidden;
     }
 
     .shooting-stars span{
       position:absolute;
-      width:120px;
-      height:1px;
+      width:150px;
+      height:2px;
       border-radius:999px;
-      background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.9), rgba(206,149,176,.35));
-      box-shadow:0 0 18px rgba(255,255,255,.55);
+      background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.95), rgba(206,149,176,.55));
+      box-shadow:
+        0 0 14px rgba(255,255,255,.85),
+        0 0 26px rgba(206,149,176,.38);
       opacity:0;
       transform:rotate(-28deg);
       animation:shootingStar 9s linear infinite;
     }
 
     .shooting-stars span:nth-child(1){ top:12%; left:-18%; animation-delay:1.2s; }
-    .shooting-stars span:nth-child(2){ top:34%; left:-28%; animation-delay:4.8s; width:90px; }
-    .shooting-stars span:nth-child(3){ top:58%; left:-22%; animation-delay:8.1s; width:140px; }
+    .shooting-stars span:nth-child(2){ top:34%; left:-28%; animation-delay:4.8s; width:105px; }
+    .shooting-stars span:nth-child(3){ top:58%; left:-22%; animation-delay:8.1s; width:165px; }
+    .shooting-stars span:nth-child(4){ top:22%; left:-25%; animation-delay:11.4s; width:115px; animation-duration:10s; }
+    .shooting-stars span:nth-child(5){ top:76%; left:-30%; animation-delay:14.6s; width:145px; animation-duration:12s; }
 
     .snow-sparkles span{
       position:absolute;
@@ -646,7 +657,7 @@
     .stella-sparkles{
       position:fixed;
       inset:0;
-      z-index:-1;
+      z-index:0;
       pointer-events:none;
       overflow:hidden;
     }
@@ -836,6 +847,8 @@
     <span></span>
     <span></span>
     <span></span>
+    <span></span>
+    <span></span>
   </div>
 
   <div class="snow-sparkles" aria-hidden="true">
@@ -942,7 +955,7 @@
         <div class="rule-list-box">
 
           <a class="rule-row" href="rules/prohibited.html">
-            <div class="mini-icon">🚫</div>
+            <div class="mini-icon"><img src="images/prohibited.png" alt="禁止事項"></div>
             <div>
               <h3>禁止事項</h3>
               <p>サーバー内で禁止されている行為一覧です。</p>
@@ -951,7 +964,7 @@
           </a>
 
           <a class="rule-row" href="rules/general.html">
-            <div class="mini-icon">🌎</div>
+            <div class="mini-icon"><img src="images/general.png" alt="一般ルール"></div>
             <div>
               <h3>一般ルール</h3>
               <p>すべての市民に共通する基本的な行動ルールです。</p>
@@ -960,7 +973,7 @@
           </a>
 
           <a class="rule-row" href="rules/police.html">
-            <div class="mini-icon">👮‍♀️</div>
+            <div class="mini-icon"><img src="images/police.png" alt="公務員ルール"></div>
             <div>
               <h3>公務員ルール</h3>
               <p>警察や救急など、公務員として活動する際のルールです。</p>
@@ -969,7 +982,7 @@
           </a>
 
           <a class="rule-row" href="rules/job.html">
-            <div class="mini-icon">👜</div>
+            <div class="mini-icon"><img src="images/job.png" alt="ジョブルール"></div>
             <div>
               <h3>ジョブルール</h3>
               <p>各種ジョブや店舗運営に関するルールや条件です。</p>
@@ -978,7 +991,7 @@
           </a>
 
           <a class="rule-row" href="rules/crime.html">
-            <div class="mini-icon">🔫</div>
+            <div class="mini-icon"><img src="images/crime.png" alt="犯罪ルール"></div>
             <div>
               <h3>犯罪ルール</h3>
               <p>犯罪行為に関するルールや禁止事項です。</p>
@@ -987,7 +1000,7 @@
           </a>
 
           <a class="rule-row" href="rules/crime-relation.html">
-            <div class="mini-icon">📜</div>
+            <div class="mini-icon"><img src="images/crime-relation.png" alt="犯罪関係"></div>
             <div>
               <h3>犯罪関係</h3>
               <p>強盗規模・参加人数・車両制限に関する情報です。</p>
@@ -996,7 +1009,7 @@
           </a>
 
           <a class="rule-row" href="rules/gang.html">
-            <div class="mini-icon">⛓️</div>
+            <div class="mini-icon"><img src="images/gang.png" alt="ギャングルール"></div>
             <div>
               <h3>ギャングルール</h3>
               <p>ギャングとしての活動や制限に関するルールです。</p>
@@ -1005,7 +1018,7 @@
           </a>
 
           <a class="rule-row" href="rules/gang-start.html">
-            <div class="mini-icon">⚖️</div>
+            <div class="mini-icon"><img src="images/gang-start.png" alt="ギャング設立条件"></div>
             <div>
               <h3>ギャング設立条件</h3>
               <p>ギャングを設立するための条件や申請手順です。</p>
@@ -1092,56 +1105,26 @@
 
 
   <script>
+    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .link-card');
 
-  // =========================
-  // ふわっと表示
-  // =========================
-
-  const revealTargets = document.querySelectorAll(
-    '.about-card, .about-item, .rule-list-box, .rule-row, .link-card'
-  );
-
-  revealTargets.forEach((target, index) => {
-    target.classList.add('reveal-ready');
-    target.style.transitionDelay = `${Math.min(index * 35, 260)}ms`;
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
+    revealTargets.forEach((target, index) => {
+      target.classList.add('reveal-ready');
+      target.style.transitionDelay = `${Math.min(index * 35, 260)}ms`;
     });
-  }, {
-    threshold: 0.12
-  });
 
-  revealTargets.forEach(target => observer.observe(target));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
 
-
-  // =========================
-  // スクロールで夜化
-  // =========================
-
-  document.documentElement.style.setProperty('--night-opacity', '0');
-
-  window.addEventListener('scroll', () => {
-
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-
-    const progress =
-      Math.min(window.scrollY / maxScroll, 1);
-
-    document.documentElement.style.setProperty(
-      '--night-opacity',
-      progress * 0.88
-    );
-
-  });
-
-</script>
+    revealTargets.forEach(target => observer.observe(target));
+  </script>
 
 </body>
 </html>
