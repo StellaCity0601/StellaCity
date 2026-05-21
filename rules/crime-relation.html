@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>犯罪関係 | Stella City</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Zen Maru Gothic",sans-serif;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,248,252,.82),
+          rgba(255,248,252,.96)
+        ),
+        url("../background.png") center/cover fixed;
+      color:#5f5570;
+      min-height:100vh;
+    }
+
+    .container{
+      width:min(1120px,92%);
+      margin:auto;
+      padding:90px 0;
+    }
+
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:34px;
+      text-decoration:none;
+      color:#b56ca6;
+      font-weight:700;
+    }
+
+    h1{
+      font-family:"Kaisei Decol",serif;
+      font-size:54px;
+      color:#9c5ca0;
+      margin-bottom:18px;
+      text-align:center;
+    }
+
+    .lead{
+      text-align:center;
+      color:#766c85;
+      line-height:2;
+      margin-bottom:55px;
+    }
+
+    .rule-section{
+      margin-bottom:34px;
+      padding:34px;
+      border-radius:30px;
+      background:rgba(255,255,255,.56);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,215,235,.72);
+      box-shadow:0 10px 40px rgba(205,155,190,.12);
+    }
+
+    h2{
+      font-family:"Kaisei Decol",serif;
+      color:#8e5693;
+      margin-bottom:22px;
+      font-size:30px;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border-radius:24px;
+      background:rgba(255,255,255,.42);
+      border:1px solid rgba(255,220,238,.8);
+      padding:16px;
+      margin-top:18px;
+    }
+
+    table{
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+    }
+
+    th{
+      padding:18px;
+      text-align:left;
+      color:white;
+      background:linear-gradient(135deg,#f6a6d5,#c1a4ff);
+      font-size:15px;
+    }
+
+    th:first-child{
+      border-radius:16px 0 0 16px;
+    }
+
+    th:last-child{
+      border-radius:0 16px 16px 0;
+    }
+
+    td{
+      padding:20px 18px;
+      line-height:1.9;
+      border-bottom:1px solid rgba(232,220,234,.8);
+      color:#665d75;
+      background:rgba(255,255,255,.48);
+    }
+
+    tr:last-child td{
+      border-bottom:none;
+    }
+
+    strong{
+      color:#cb6fa6;
+    }
+
+    ul{
+      list-style:none;
+      margin-top:14px;
+    }
+
+    li{
+      padding:14px 0;
+      border-bottom:1px solid rgba(232,220,234,.8);
+      line-height:2;
+      color:#665d75;
+    }
+
+    li:last-child{
+      border-bottom:none;
+    }
+
+    .note-box{
+      margin-top:26px;
+      padding:22px 24px;
+      border-radius:22px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,240,248,.88),
+          rgba(255,250,253,.95)
+        );
+      border:1px solid rgba(255,190,225,.55);
+      color:#8a5b8d;
+      line-height:2;
+      font-weight:600;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      color:#988ca4;
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <a href="../index.html" class="back-btn">
+      ← トップページへ戻る
+    </a>
+
+    <h1>📜 犯罪関係</h1>
+
+    <p class="lead">
+      強盗規模・参加人数・車両制限に関する一覧です。<br>
+      犯罪前に必ず確認してください。
+    </p>
+
+    <div class="rule-section">
+
+      <h2>■ 強盗規模・参加人数・該当内容一覧</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>強盗区分</th>
+              <th>参加人数</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>小型強盗</td>
+              <td>1～2人</td>
+              <td>コンビニ強盗 / 住宅強盗 / ATM強盗 / トラック強盗</td>
+            </tr>
+
+            <tr>
+              <td>準中型強盗</td>
+              <td>1～4人</td>
+              <td><strong>フリーカ強盗</strong> / <strong>宝石強盗</strong> / 現金輸送 / 貨物船強盗</td>
+            </tr>
+
+            <tr>
+              <td>中型強盗</td>
+              <td>3～6人</td>
+              <td>列車強盗 / 武器強盗 / 高級車強盗</td>
+            </tr>
+
+            <tr>
+              <td>大型強盗</td>
+              <td>5～10人</td>
+              <td>パレト強盗 / ボブキャット / パシフィック強盗 / 客船</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        ※ 小型強盗・フリーカ強盗・宝石強盗は<strong>人質任意</strong>
+      </div>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>車両制限</h2>
+
+      <ul>
+        <li>強盗参加人数 × 台数まで使用可能（ヘリも含む）</li>
+        <li>小型強盗～準中型強盗は<strong>ヘリ禁止</strong></li>
+        <li>中型強盗～大型強盗はヘリ1台まで</li>
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>■ PD 強盗開始・参加人数</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>強盗区分</th>
+              <th>参加人数</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>小型強盗</td>
+              <td>2～4人</td>
+              <td>人質任意 / 職質必須 / ヘリ禁止</td>
+            </tr>
+
+            <tr>
+              <td>準中型強盗</td>
+              <td>2～6人</td>
+              <td>
+                撃ち合い前提 / <strong>フリーカ強盗・宝石強盗</strong>は例外 / ヘリ禁止<br>
+                ※ 宝石強盗は例外
+              </td>
+            </tr>
+
+            <tr>
+              <td>中型強盗</td>
+              <td>4～8人</td>
+              <td>撃ち合い前提 / ヘリ1台まで</td>
+            </tr>
+
+            <tr>
+              <td>大型強盗</td>
+              <td>6～12人</td>
+              <td>撃ち合い前提 / ヘリ1台まで</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        ※ 小型強盗・フリーカ強盗・宝石強盗は<strong>人質任意</strong><br>
+        ※ 宝石強盗はPDヘリ1機使用可能
+      </div>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>PD車両制限</h2>
+
+      <ul>
+        <li>強盗参加人数 × 台数まで使用可能（ヘリも含む）</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Stella City
+  </footer>
+
+</body>
+</html>
