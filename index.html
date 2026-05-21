@@ -412,19 +412,56 @@
       pointer-events:none;
     }
 
-    /* 画像の中に余白があるから、HTML側で少し大きく表示して中央に見せる */
-    .rule-row:nth-child(1) .mini-icon img,
-    .rule-row:nth-child(3) .mini-icon img,
-    .rule-row:nth-child(5) .mini-icon img,
+    /* 禁止事項 */
+    .rule-row:nth-child(1) .mini-icon img{
+      width:70px;
+      height:70px;
+      transform:translateY(1px);
+    }
+    
+    /* 一般ルール */
+    .rule-row:nth-child(2) .mini-icon img{
+      width:82px;
+      height:82px;
+      transform:translateY(1px);
+    }
+    
+    /* 公務員ルール */
+    .rule-row:nth-child(3) .mini-icon img{
+      width:70px;
+      height:70px;
+      transform:translateY(-4px);
+    }
+    
+    /* ジョブルール */
+    .rule-row:nth-child(4) .mini-icon img{
+      width:82px;
+      height:82px;
+      transform:translateY(4px);
+    }
+    
+    /* 犯罪ルール */
+    .rule-row:nth-child(5) .mini-icon img{
+      width:70px;
+      height:70px;
+      transform:translateY(-4px);
+    }
+    
+    /* 犯罪関係 */
+    .rule-row:nth-child(6) .mini-icon img{
+      width:58px;
+      height:58px;
+      transform:translateY(1px);
+    }
+    
+    /* ギャングルール */
     .rule-row:nth-child(7) .mini-icon img{
       width:70px;
       height:70px;
       transform:translateY(1px);
     }
-
-    .rule-row:nth-child(2) .mini-icon img,
-    .rule-row:nth-child(4) .mini-icon img,
-    .rule-row:nth-child(6) .mini-icon img,
+    
+    /* ギャング設立条件 */
     .rule-row:nth-child(8) .mini-icon img{
       width:82px;
       height:82px;
