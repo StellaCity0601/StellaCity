@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>犯罪ルール | Stella City</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Zen Maru Gothic",sans-serif;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,248,252,.82),
+          rgba(255,248,252,.96)
+        ),
+        url("../background.png") center/cover fixed;
+
+      color:#5f5570;
+
+      min-height:100vh;
+    }
+
+    .container{
+      width:min(1100px,92%);
+      margin:auto;
+      padding:90px 0;
+    }
+
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      margin-bottom:34px;
+
+      text-decoration:none;
+
+      color:#b56ca6;
+
+      font-weight:700;
+    }
+
+    h1{
+      font-family:"Kaisei Decol",serif;
+
+      font-size:54px;
+
+      color:#9c5ca0;
+
+      margin-bottom:18px;
+
+      text-align:center;
+    }
+
+    .lead{
+      text-align:center;
+
+      color:#766c85;
+
+      line-height:2;
+
+      margin-bottom:55px;
+    }
+
+    .rule-section{
+      margin-bottom:34px;
+
+      padding:34px;
+
+      border-radius:30px;
+
+      background:rgba(255,255,255,.56);
+
+      backdrop-filter:blur(18px);
+
+      border:1px solid rgba(255,215,235,.72);
+
+      box-shadow:
+        0 10px 40px rgba(205,155,190,.12);
+    }
+
+    h2{
+      font-family:"Kaisei Decol",serif;
+
+      color:#8e5693;
+
+      margin-bottom:22px;
+
+      font-size:30px;
+    }
+
+    h3{
+      color:#b05f9e;
+
+      margin-top:20px;
+      margin-bottom:14px;
+
+      font-size:20px;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    li{
+      padding:16px 0;
+
+      border-bottom:1px solid rgba(232,220,234,.8);
+
+      line-height:2;
+
+      color:#665d75;
+    }
+
+    li:last-child{
+      border-bottom:none;
+    }
+
+    strong{
+      color:#cb6fa6;
+    }
+
+    .sub-text{
+      display:block;
+
+      margin-top:6px;
+      margin-left:14px;
+
+      color:#8b8099;
+
+      font-size:14px;
+
+      line-height:1.8;
+    }
+
+    .warn-box{
+      margin-bottom:40px;
+
+      padding:22px 26px;
+
+      border-radius:24px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,230,240,.85),
+          rgba(255,245,250,.95)
+        );
+
+      border:1px solid rgba(255,180,215,.6);
+
+      color:#c05c91;
+
+      line-height:2;
+
+      font-weight:700;
+    }
+
+    .number-list{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .number-item{
+      padding:22px 24px;
+
+      border-radius:22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.72),
+          rgba(255,245,251,.55)
+        );
+
+      border:1px solid rgba(255,220,238,.8);
+
+      line-height:2;
+
+      color:#655a73;
+    }
+
+    footer{
+      text-align:center;
+
+      padding:40px;
+
+      color:#988ca4;
+
+      font-size:14px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <a href="../index.html" class="back-btn">
+      ← トップページへ戻る
+    </a>
+
+    <h1>🔫 犯罪ルール</h1>
+
+    <p class="lead">
+      犯罪・強盗・抗争に関するルール一覧です。<br>
+      必ず確認したうえでRPを行ってください。
+    </p>
+
+    <div class="warn-box">
+      トラブル内容によっては、
+      運営判断により処罰対象となる場合があります。
+    </div>
+
+    <div class="rule-section">
+
+      <h2>🚨 基本ルール</h2>
+
+      <ul>
+
+        <li>
+          基本的にRPを遵守して行動してください。
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>⏰ サーバーリセット</h2>
+
+      <ul>
+
+        <li>
+          <strong>
+            リセット30分前〜リセット後15分以内は
+            全ての犯罪受注・開始禁止
+          </strong>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>⚔️ シーン終了条件</h2>
+
+      <ul>
+
+        <li>PD全滅</li>
+
+        <li>犯人側全滅</li>
+
+        <li>PD降参</li>
+
+        <li>
+          犯人側逃走成功
+
+          <span class="sub-text">
+            → 指名手配中は延長される場合あり
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>👮‍♂️ PD関連</h2>
+
+      <ul>
+
+        <li>
+          白市民はPD指示に従うこと
+        </li>
+
+        <li>
+          PD視認状態でのアジト逃げ禁止
+        </li>
+
+        <li>
+          犯罪中はPDへの警告なし発砲可能
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>📸 その他禁止事項</h2>
+
+      <ul>
+
+        <li>ダウン状態での報告禁止</li>
+
+        <li>公務員を人質にする行為禁止</li>
+
+        <li>人質がいる状態での撃ち合い開始禁止</li>
+
+        <li>受注権は公平に話し合いで決定</li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>💣 歪み（バグ）対応</h2>
+
+      <div class="number-list">
+
+        <div class="number-item">
+
+          <strong>1. PDへ報告し中止</strong>
+
+          <span class="sub-text">
+            → 罰金・押収・補填なし<br>
+            → 手荷物検査あり<br>
+            → 取得物は押収対象
+          </span>
+
+        </div>
+
+        <div class="number-item">
+
+          <strong>2. 続行後クリップ提出</strong>
+
+          <span class="sub-text">
+            → 逃走成功で補填対象<br>
+            → 失敗時は通常通り罰金・押収・プリズン
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="sub-text" style="margin-top:18px;">
+        ※PDが来ない場合、15分待機で成功扱い
+      </div>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>🔫 強盗・犯罪ルール</h2>
+
+      <h3>⚔️ 武器・戦闘</h3>
+
+      <ul>
+
+        <li>
+          準中型〜大型強盗は
+          <strong>即発砲OK</strong>
+
+          <span class="sub-text">
+            → フリーカ・宝石強盗は人質任意
+          </span>
+        </li>
+
+        <li>ゾンビ行為禁止</li>
+
+        <li>防弾車両禁止（PDライオット除く）</li>
+
+      </ul>
+
+      <h3>🚁 特殊戦術</h3>
+
+      <ul>
+
+        <li>
+          ヘリ撃ち（ヘリバイ）許可
+
+          <span class="sub-text">
+            → 一般市民巻き込み厳禁
+          </span>
+        </li>
+
+        <li>ヘリアタック許可</li>
+
+      </ul>
+
+      <h3>🧍 人質関連</h3>
+
+      <ul>
+
+        <li>人質は生存状態必須</li>
+
+        <li>
+          人質は見える位置へ配置
+
+          <span class="sub-text">
+            → 確認不可時はPD即突入可能
+          </span>
+        </li>
+
+        <li>
+          犯人側発砲時、
+          <strong>全条件即解禁</strong>
+        </li>
+
+        <li>
+          指名禁止
+
+          <span class="sub-text">
+            → セクハラ・トラブル防止
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>📋 進行ルール</h2>
+
+      <ul>
+
+        <li>同組織複数受注禁止</li>
+
+        <li>受注後30分以内開始必須</li>
+
+        <li>犯罪中の車修理禁止</li>
+
+        <li>シーン中ガレージ使用禁止</li>
+
+        <li>爆発物使用禁止</li>
+
+        <li>セーフゾーン逃げ込み禁止</li>
+
+        <li>故意被せ禁止</li>
+
+        <li>犯罪後現場戻り禁止</li>
+
+        <li>物資隠し禁止</li>
+
+        <li>合同時服装統一必須</li>
+
+        <li>エモート弾除け禁止</li>
+
+        <li>
+          フリーカ・宝石除く
+          準中型〜大型強盗の人質禁止
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>🏥 EMS・蘇生</h2>
+
+      <ul>
+
+        <li>
+          シーン終了までEMS治療・蘇生禁止
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="rule-section">
+
+      <h2>🧟‍♂️ ゾンビ行為</h2>
+
+      <ul>
+
+        <li>
+          原則禁止
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Stella City
+  </footer>
+
+</body>
+</html>
