@@ -365,7 +365,7 @@
 
     .rule-row{
       display:grid;
-      grid-template-columns:70px 1fr 28px;
+      grid-template-columns:70px minmax(0,1fr) 42px;
 
       gap:18px;
 
@@ -409,13 +409,30 @@
     }
 
     .mini-icon img{
-      width:40px;
-      height:40px;
-
       object-fit:contain;
-      object-position:center;
-
       display:block;
+      max-width:none;
+      max-height:none;
+      pointer-events:none;
+    }
+
+    /* 画像の中に余白があるから、HTML側で少し大きく表示して中央に見せる */
+    .rule-row:nth-child(1) .mini-icon img,
+    .rule-row:nth-child(3) .mini-icon img,
+    .rule-row:nth-child(5) .mini-icon img,
+    .rule-row:nth-child(7) .mini-icon img{
+      width:62px;
+      height:62px;
+      transform:translateY(1px);
+    }
+
+    .rule-row:nth-child(2) .mini-icon img,
+    .rule-row:nth-child(4) .mini-icon img,
+    .rule-row:nth-child(6) .mini-icon img,
+    .rule-row:nth-child(8) .mini-icon img{
+      width:74px;
+      height:74px;
+      transform:translateY(1px);
     }
 
     .rule-row h3{
@@ -436,10 +453,18 @@
     }
 
     .arrow{
+      width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      justify-self:center;
+      align-self:center;
       color:var(--dusty-pink);
-
       font-size:34px;
+      line-height:1;
       font-weight:300;
+      transform:translateY(-1px);
     }
 
 
@@ -452,13 +477,22 @@
     .terms-small-link a{
       display:inline-flex;
       align-items:center;
+      gap:10px;
       color:var(--mauve);
       text-decoration:none;
       font-size:14px;
       font-weight:700;
       letter-spacing:.04em;
-      opacity:.84;
+      opacity:.9;
       transition:.25s ease;
+    }
+
+    .terms-small-link img{
+      width:30px;
+      height:30px;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 4px 10px rgba(166,113,137,.18));
     }
 
     .terms-small-link a:hover{
@@ -614,23 +648,56 @@
 
     .shooting-stars span{
       position:absolute;
-      width:150px;
-      height:2px;
-      border-radius:999px;
-      background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.95), rgba(206,149,176,.55));
-      box-shadow:
-        0 0 14px rgba(255,255,255,.85),
-        0 0 26px rgba(206,149,176,.38);
+      width:112px;
+      height:18px;
       opacity:0;
-      transform:rotate(-28deg);
-      animation:shootingStar 9s linear infinite;
+      pointer-events:none;
+
+      /* 左上 → 右下にちゃんと流れる、シンプルできれいな尾 */
+      transform-origin:right center;
+      animation:simpleShootingStar 4.6s linear infinite;
+      filter:
+        drop-shadow(0 0 8px rgba(255,255,255,.9))
+        drop-shadow(0 0 16px rgba(255,198,228,.45));
     }
 
-    .shooting-stars span:nth-child(1){ top:12%; left:-18%; animation-delay:1.2s; }
-    .shooting-stars span:nth-child(2){ top:34%; left:-28%; animation-delay:4.8s; width:105px; }
-    .shooting-stars span:nth-child(3){ top:58%; left:-22%; animation-delay:8.1s; width:165px; }
-    .shooting-stars span:nth-child(4){ top:22%; left:-25%; animation-delay:11.4s; width:115px; animation-duration:10s; }
-    .shooting-stars span:nth-child(5){ top:76%; left:-30%; animation-delay:14.6s; width:145px; animation-duration:12s; }
+    .shooting-stars span::before{
+      content:"";
+      position:absolute;
+      right:0;
+      top:50%;
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,.98);
+      box-shadow:
+        0 0 10px rgba(255,255,255,.95),
+        0 0 18px rgba(255,207,232,.72);
+    }
+
+    .shooting-stars span::after{
+      content:"";
+      position:absolute;
+      right:7px;
+      top:50%;
+      width:104px;
+      height:2px;
+      border-radius:999px;
+      transform:translateY(-50%);
+      background:linear-gradient(90deg,
+        rgba(255,255,255,.95) 0%,
+        rgba(255,235,247,.55) 30%,
+        rgba(255,221,240,.16) 70%,
+        rgba(255,255,255,0) 100%
+      );
+    }
+
+    .shooting-stars span:nth-child(1){ top:9%; left:-16%; animation-delay:.4s; --s:1; }
+    .shooting-stars span:nth-child(2){ top:18%; left:-22%; animation-delay:3.1s; --s:.82; }
+    .shooting-stars span:nth-child(3){ top:31%; left:-18%; animation-delay:5.8s; --s:.72; }
+    .shooting-stars span:nth-child(4){ top:13%; left:22%; animation-delay:8.2s; --s:.66; }
+    .shooting-stars span:nth-child(5){ top:40%; left:4%; animation-delay:10.6s; --s:.78; }
 
     .snow-sparkles span{
       position:absolute;
@@ -748,21 +815,27 @@
     }
 
 
-    @keyframes shootingStar{
+    @keyframes simpleShootingStar{
       0%{
         opacity:0;
-        transform:translate3d(0,0,0) rotate(-28deg);
+        transform:translate3d(0,0,0) rotate(26deg) scale(var(--s,1));
       }
-      6%{
-        opacity:.9;
-      }
-      16%{
+      8%{
         opacity:0;
-        transform:translate3d(135vw,62vh,0) rotate(-28deg);
+      }
+      13%{
+        opacity:.95;
+      }
+      30%{
+        opacity:.95;
+      }
+      42%{
+        opacity:0;
+        transform:translate3d(62vw,28vh,0) rotate(26deg) scale(var(--s,1));
       }
       100%{
         opacity:0;
-        transform:translate3d(135vw,62vh,0) rotate(-28deg);
+        transform:translate3d(62vw,28vh,0) rotate(26deg) scale(var(--s,1));
       }
     }
 
@@ -1032,7 +1105,7 @@
         </div>
 
         <div class="terms-small-link">
-          <a href="rules/terms.html">利用規約はこちら ＞</a>
+          <a href="rules/terms.html"><img src="images/terms.png" alt="利用規約">利用規約はこちら ＞</a>
         </div>
 
       </div>
@@ -1108,7 +1181,7 @@
 
 
   <script>
-    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .link-card');
+    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .terms-small-link, .link-card');
 
     revealTargets.forEach((target, index) => {
       target.classList.add('reveal-ready');
