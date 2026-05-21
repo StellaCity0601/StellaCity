@@ -365,7 +365,7 @@
 
     .rule-row{
       display:grid;
-      grid-template-columns:70px minmax(0,1fr) 42px;
+      grid-template-columns:82px minmax(0,1fr) 42px;
 
       gap:18px;
 
@@ -387,29 +387,25 @@
     }
 
     .mini-icon{
-      width:62px;
-      height:62px;
+      width:72px;
+      height:72px;
 
       display:flex;
       align-items:center;
       justify-content:center;
 
-      border-radius:50%;
-
-      background:
-        radial-gradient(circle at 30% 25%, #fff, transparent 45%),
-        linear-gradient(135deg,#F2D4E2,#E5C1D4);
-
-      border:1px solid rgba(255,255,255,.9);
-
-      box-shadow:
-        0 6px 18px rgba(63,74,89,.12);
+      background:none;
+      border:none;
+      box-shadow:none;
+      border-radius:0;
 
       font-size:24px;
+      overflow:visible;
     }
 
     .mini-icon img{
       object-fit:contain;
+      object-position:center;
       display:block;
       max-width:none;
       max-height:none;
@@ -491,6 +487,7 @@
       width:30px;
       height:30px;
       object-fit:contain;
+      object-position:center;
       display:block;
       filter:drop-shadow(0 4px 10px rgba(166,113,137,.18));
     }
@@ -693,40 +690,11 @@
       );
     }
 
-    .shooting-stars span:nth-child(1){
-      top:8%;
-      left:-12%;
-      animation-delay:.4s;
-      --s:1;
-    }
-    
-    .shooting-stars span:nth-child(2){
-      top:22%;
-      left:18%;
-      animation-delay:2.8s;
-      --s:.82;
-    }
-    
-    .shooting-stars span:nth-child(3){
-      top:42%;
-      left:-8%;
-      animation-delay:5.2s;
-      --s:.72;
-    }
-    
-    .shooting-stars span:nth-child(4){
-      top:16%;
-      left:58%;
-      animation-delay:7.8s;
-      --s:.66;
-    }
-    
-    .shooting-stars span:nth-child(5){
-      top:62%;
-      left:34%;
-      animation-delay:10.2s;
-      --s:.78;
-    }
+    .shooting-stars span:nth-child(1){ top:8%; left:-14%; animation-delay:.4s; --s:1; }
+    .shooting-stars span:nth-child(2){ top:22%; left:18%; animation-delay:2.8s; --s:.82; }
+    .shooting-stars span:nth-child(3){ top:42%; left:-8%; animation-delay:5.2s; --s:.72; }
+    .shooting-stars span:nth-child(4){ top:16%; left:58%; animation-delay:7.8s; --s:.66; }
+    .shooting-stars span:nth-child(5){ top:62%; left:34%; animation-delay:10.2s; --s:.78; }
 
     .snow-sparkles span{
       position:absolute;
