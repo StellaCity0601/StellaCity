@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>公務員ルール | Stella City</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Zen Maru Gothic",sans-serif;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,248,252,.82),
+          rgba(255,248,252,.96)
+        ),
+        url("../background.png") center/cover fixed;
+
+      color:#5f5570;
+
+      min-height:100vh;
+    }
+
+    .container{
+      width:min(1100px,92%);
+      margin:auto;
+      padding:90px 0;
+    }
+
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      margin-bottom:34px;
+
+      text-decoration:none;
+
+      color:#b56ca6;
+
+      font-weight:700;
+    }
+
+    h1{
+      font-family:"Kaisei Decol",serif;
+
+      font-size:52px;
+
+      color:#9c5ca0;
+
+      margin-bottom:18px;
+
+      text-align:center;
+    }
+
+    .lead{
+      text-align:center;
+
+      color:#766c85;
+
+      line-height:2;
+
+      margin-bottom:50px;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+
+      border-radius:30px;
+
+      background:rgba(255,255,255,.58);
+
+      backdrop-filter:blur(18px);
+
+      border:1px solid rgba(255,215,235,.7);
+
+      box-shadow:
+        0 10px 40px rgba(205,155,190,.12);
+
+      padding:18px;
+    }
+
+    table{
+      width:100%;
+
+      border-collapse:collapse;
+
+      min-width:760px;
+    }
+
+    th{
+      background:
+        linear-gradient(
+          135deg,
+          #f6b3db,
+          #d4b6ff
+        );
+
+      color:white;
+
+      padding:18px;
+
+      font-size:15px;
+
+      text-align:left;
+    }
+
+    th:first-child{
+      border-radius:18px 0 0 18px;
+    }
+
+    th:last-child{
+      border-radius:0 18px 18px 0;
+    }
+
+    td{
+      padding:22px 18px;
+
+      background:rgba(255,255,255,.5);
+
+      border-bottom:1px solid rgba(232,220,234,.8);
+
+      line-height:1.9;
+    }
+
+    tr:last-child td{
+      border-bottom:none;
+    }
+
+    .note-box{
+      margin-top:34px;
+
+      padding:24px;
+
+      border-radius:24px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,240,248,.88),
+          rgba(255,250,253,.95)
+        );
+
+      border:1px solid rgba(255,190,225,.55);
+
+      color:#8a5b8d;
+
+      line-height:2;
+    }
+
+    .note-box a{
+      color:#d26ab0;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    footer{
+      text-align:center;
+
+      padding:40px;
+
+      color:#988ca4;
+
+      font-size:14px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <a href="../index.html" class="back-btn">
+      ← トップページへ戻る
+    </a>
+
+    <h1>👮‍♀️ 公務員ルール</h1>
+
+    <p class="lead">
+      強盗規模ごとの対応人数や条件一覧です。<br>
+      必ず確認したうえで行動してください。
+    </p>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>強盗区分</th>
+            <th>参加人数</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>小型強盗</td>
+            <td>2～4人</td>
+            <td>
+              人質任意 / 職質必須 / ヘリ禁止
+            </td>
+          </tr>
+
+          <tr>
+            <td>準中型強盗</td>
+            <td>2～6人</td>
+            <td>
+              撃ち合い前提 / フリーカ強盗・宝石強盗は例外<br>
+              ヘリ禁止 / 宝石強盗は例外
+            </td>
+          </tr>
+
+          <tr>
+            <td>中型強盗</td>
+            <td>4～8人</td>
+            <td>
+              撃ち合い前提 / ヘリ1台まで
+            </td>
+          </tr>
+
+          <tr>
+            <td>大型強盗</td>
+            <td>6～12人</td>
+            <td>
+              撃ち合い前提 / ヘリ1台まで
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="note-box">
+
+      詳細な公務員ルールについては、
+      以下の資料も確認してください。<br><br>
+
+      <a href="https://www.notion.so/2a0cfbf6602081888be3cd522e7ed992?pvs=21" target="_blank">
+        ▶ 公務員ルール詳細を見る
+      </a>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Stella City
+  </footer>
+
+</body>
+</html>
