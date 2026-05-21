@@ -409,14 +409,34 @@
     }
 
     .mini-icon img{
-      width:54px;
-      height:54px;
+      width:34px;
+      height:34px;
+    
       object-fit:contain;
-      object-position:center center;
       display:block;
-
-      /* 画像自体の余白で上に寄って見える子を、丸の中央に見えるように補正 */
-      transform:translateY(6px) scale(1.16);
+    }
+    
+    
+    /* ↓ この4つだけ前の設定 */
+    .rule-row:nth-child(1) .mini-icon img,
+    .rule-row:nth-child(3) .mini-icon img,
+    .rule-row:nth-child(5) .mini-icon img,
+    .rule-row:nth-child(7) .mini-icon img{
+      width:34px;
+      height:34px;
+      transform:none;
+    }
+    
+    
+    /* ↓ この4つだけ大きく＆中央補正 */
+    .rule-row:nth-child(2) .mini-icon img,
+    .rule-row:nth-child(4) .mini-icon img,
+    .rule-row:nth-child(6) .mini-icon img,
+    .rule-row:nth-child(8) .mini-icon img{
+      width:28px;
+      height:28px;
+    
+      transform:translateY(2px);
     }
 
     .rule-row h3{
@@ -670,10 +690,10 @@
       border-radius:999px;
       transform:translateY(-50%);
       background:linear-gradient(90deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,221,240,.16) 30%,
-        rgba(255,235,247,.55) 70%,
-        rgba(255,255,255,.95) 100%
+        rgba(255,255,255,.95) 0%,
+        rgba(255,235,247,.55) 30%,
+        rgba(255,221,240,.16) 70%,
+        rgba(255,255,255,0) 100%
       );
     }
 
