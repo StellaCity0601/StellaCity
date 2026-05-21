@@ -81,16 +81,23 @@
       position:fixed;
       inset:0;
       z-index:-1;
-
+    
       background:
         linear-gradient(
+          to bottom,
+          rgba(248,238,244,.12),
+          rgba(13,18,34,var(--night-opacity))
+        ),
+    
+        linear-gradient(
           to right,
-          rgba(206,149,176,.34),
-          rgba(43,67,101,.18),
-          rgba(206,149,176,.34)
+          rgba(206,149,176,.26),
+          rgba(43,67,101,.16),
+          rgba(206,149,176,.26)
         );
-
+    
       pointer-events:none;
+      transition:background .18s linear;
     }
 
     .container{
@@ -1085,26 +1092,56 @@
 
 
   <script>
-    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .link-card');
 
-    revealTargets.forEach((target, index) => {
-      target.classList.add('reveal-ready');
-      target.style.transitionDelay = `${Math.min(index * 35, 260)}ms`;
+  // =========================
+  // ふわっと表示
+  // =========================
+
+  const revealTargets = document.querySelectorAll(
+    '.about-card, .about-item, .rule-list-box, .rule-row, .link-card'
+  );
+
+  revealTargets.forEach((target, index) => {
+    target.classList.add('reveal-ready');
+    target.style.transitionDelay = `${Math.min(index * 35, 260)}ms`;
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
     });
+  }, {
+    threshold: 0.12
+  });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12
-    });
+  revealTargets.forEach(target => observer.observe(target));
 
-    revealTargets.forEach(target => observer.observe(target));
-  </script>
+
+  // =========================
+  // スクロールで夜化
+  // =========================
+
+  document.documentElement.style.setProperty('--night-opacity', '0');
+
+  window.addEventListener('scroll', () => {
+
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress =
+      Math.min(window.scrollY / maxScroll, 1);
+
+    document.documentElement.style.setProperty(
+      '--night-opacity',
+      progress * 0.88
+    );
+
+  });
+
+</script>
 
 </body>
 </html>
