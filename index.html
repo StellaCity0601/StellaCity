@@ -365,7 +365,7 @@
 
     .rule-row{
       display:grid;
-      grid-template-columns:70px 1fr 28px;
+      grid-template-columns:70px minmax(0,1fr) 42px;
 
       gap:18px;
 
@@ -435,10 +435,18 @@
     }
 
     .arrow{
+      width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      justify-self:center;
+      align-self:center;
       color:var(--dusty-pink);
-
       font-size:34px;
+      line-height:1;
       font-weight:300;
+      transform:translateY(-1px);
     }
 
 
@@ -451,13 +459,22 @@
     .terms-small-link a{
       display:inline-flex;
       align-items:center;
+      gap:10px;
       color:var(--mauve);
       text-decoration:none;
       font-size:14px;
       font-weight:700;
       letter-spacing:.04em;
-      opacity:.84;
+      opacity:.9;
       transition:.25s ease;
+    }
+
+    .terms-small-link img{
+      width:26px;
+      height:26px;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 4px 10px rgba(166,113,137,.18));
     }
 
     .terms-small-link a:hover{
@@ -613,64 +630,53 @@
 
     .shooting-stars span{
       position:absolute;
-    
-      width:80px;
-      height:2px;
-    
-      border-radius:999px;
-    
-      background:
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0),
-          rgba(255,255,255,.95),
-          rgba(255,220,240,.8)
-        );
-    
-      box-shadow:
-        0 0 12px rgba(255,255,255,.85),
-        0 0 24px rgba(255,210,235,.45);
-    
+      width:18px;
+      height:18px;
       opacity:0;
-    
-      transform:rotate(-25deg);
-    
-      animation:prettyStar 7s linear infinite;
+      animation:prettyShootingStar 8s ease-in-out infinite;
+      filter:drop-shadow(0 0 10px rgba(255,255,255,.85));
     }
 
-    .shooting-stars span:nth-child(1){
-      top:12%;
-      left:8%;
-      animation-delay:0s;
+    .shooting-stars span::before{
+      content:"✦";
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(255,246,252,.98);
+      font-size:22px;
+      line-height:1;
+      text-shadow:
+        0 0 8px rgba(255,255,255,.95),
+        0 0 18px rgba(255,205,232,.75),
+        0 0 26px rgba(206,149,176,.42);
     }
-    
-    .shooting-stars span:nth-child(2){
-      top:24%;
-      left:58%;
-      width:60px;
-      animation-delay:2.5s;
+
+    .shooting-stars span::after{
+      content:"";
+      position:absolute;
+      right:12px;
+      top:50%;
+      width:74px;
+      height:24px;
+      transform:translateY(-50%) rotate(-10deg);
+      transform-origin:right center;
+      background:
+        radial-gradient(circle at 8% 50%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+        radial-gradient(circle at 24% 36%, rgba(255,222,240,.75) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 44% 62%, rgba(255,255,255,.6) 0 1.5px, transparent 2.5px),
+        linear-gradient(90deg, transparent, rgba(255,235,247,.34), rgba(255,255,255,.72));
+      border-radius:999px;
+      opacity:.9;
+      filter:blur(.15px);
     }
-    
-    .shooting-stars span:nth-child(3){
-      top:40%;
-      left:22%;
-      width:70px;
-      animation-delay:5s;
-    }
-    
-    .shooting-stars span:nth-child(4){
-      top:16%;
-      left:78%;
-      width:50px;
-      animation-delay:7s;
-    }
-    
-    .shooting-stars span:nth-child(5){
-      top:34%;
-      left:70%;
-      width:65px;
-      animation-delay:9s;
-    }
+
+    .shooting-stars span:nth-child(1){ top:12%; left:12%; animation-delay:.7s; }
+    .shooting-stars span:nth-child(2){ top:24%; left:66%; animation-delay:3.1s; transform:scale(.82); }
+    .shooting-stars span:nth-child(3){ top:38%; left:24%; animation-delay:5.8s; transform:scale(.72); }
+    .shooting-stars span:nth-child(4){ top:17%; left:82%; animation-delay:8.6s; transform:scale(.65); }
+    .shooting-stars span:nth-child(5){ top:52%; left:74%; animation-delay:11.4s; transform:scale(.78); }
 
     .snow-sparkles span{
       position:absolute;
@@ -788,36 +794,24 @@
     }
 
 
-    @keyframes prettyStar{
-
-      0%{
+    @keyframes prettyShootingStar{
+      0%, 100%{
         opacity:0;
-        transform:
-          translate3d(0,0,0)
-          rotate(-25deg)
-          scale(.7);
+        transform:translate3d(0,0,0) rotate(-18deg) scale(.72);
       }
-    
       8%{
+        opacity:0;
+      }
+      13%{
         opacity:1;
+        transform:translate3d(14px,8px,0) rotate(-18deg) scale(.95);
       }
-    
-      22%{
-        opacity:0;
-    
-        transform:
-          translate3d(420px,180px,0)
-          rotate(-25deg)
-          scale(1);
+      25%{
+        opacity:.95;
       }
-    
-      100%{
+      38%{
         opacity:0;
-    
-        transform:
-          translate3d(420px,180px,0)
-          rotate(-25deg)
-          scale(1);
+        transform:translate3d(230px,96px,0) rotate(-18deg) scale(.6);
       }
     }
 
@@ -1087,7 +1081,7 @@
         </div>
 
         <div class="terms-small-link">
-          <a href="rules/terms.html">利用規約はこちら ＞</a>
+          <a href="rules/terms.html"><img src="images/terms.png" alt="利用規約">利用規約はこちら ＞</a>
         </div>
 
       </div>
@@ -1163,7 +1157,7 @@
 
 
   <script>
-    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .link-card');
+    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .terms-small-link, .link-card');
 
     revealTargets.forEach((target, index) => {
       target.classList.add('reveal-ready');
