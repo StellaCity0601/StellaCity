@@ -409,37 +409,30 @@
     }
 
     .mini-icon img{
-      width:100%;
-      height:100%;
-    
       object-fit:contain;
       display:block;
+      max-width:none;
+      max-height:none;
+      pointer-events:none;
     }
-    
-    
-    /* ↓ この4つだけ前の設定 */
+
+    /* 画像の中に余白があるから、HTML側で少し大きく表示して中央に見せる */
     .rule-row:nth-child(1) .mini-icon img,
     .rule-row:nth-child(3) .mini-icon img,
     .rule-row:nth-child(5) .mini-icon img,
     .rule-row:nth-child(7) .mini-icon img{
-      width:36px;
-      height:36px;
-      max-width:none;
-      max-height:none;
-    
-      transform:translateY(2px);
+      width:62px;
+      height:62px;
+      transform:translateY(1px);
     }
-    
-    
-    /* ↓ この4つだけ大きく＆中央補正 */
+
     .rule-row:nth-child(2) .mini-icon img,
     .rule-row:nth-child(4) .mini-icon img,
     .rule-row:nth-child(6) .mini-icon img,
     .rule-row:nth-child(8) .mini-icon img{
-      width:40px;
-      height:40px;
-    
-      transform:translateY(2px);
+      width:74px;
+      height:74px;
+      transform:translateY(1px);
     }
 
     .rule-row h3{
@@ -495,8 +488,8 @@
     }
 
     .terms-small-link img{
-      width:26px;
-      height:26px;
+      width:30px;
+      height:30px;
       object-fit:contain;
       display:block;
       filter:drop-shadow(0 4px 10px rgba(166,113,137,.18));
@@ -840,7 +833,6 @@
         opacity:0;
         transform:translate3d(62vw,28vh,0) rotate(26deg) scale(var(--s,1));
       }
-      
       100%{
         opacity:0;
         transform:translate3d(62vw,28vh,0) rotate(26deg) scale(var(--s,1));
