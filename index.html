@@ -4,369 +4,795 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stella City</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html{
+      scroll-behavior:smooth;
     }
 
-    body {
-      min-height: 100vh;
-      font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
-      color: #ffffff;
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
+
+      font-family:"Zen Maru Gothic",sans-serif;
+      color:#4e4260;
+
+      background:#fff9fc;
+    }
+
+    h1,h2,h3{
+      font-family:"Kaisei Decol",serif;
+      font-weight:700;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+
       background:
-        radial-gradient(circle at top, rgba(150, 65, 255, 0.35), transparent 35%),
-        linear-gradient(135deg, #050508 0%, #12051f 45%, #050508 100%);
-      overflow-x: hidden;
+        linear-gradient(to bottom,
+          rgba(255,248,252,.15) 0%,
+          rgba(255,248,252,.68) 46%,
+          #fff9fc 88%
+        ),
+
+        radial-gradient(circle at top,
+          rgba(255,255,255,.82),
+          transparent 38%
+        ),
+
+        url("background.png") center top / cover no-repeat;
+
+      filter:saturate(1.05);
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 48px 48px;
-      pointer-events: none;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+
+      background:
+        linear-gradient(
+          to right,
+          rgba(255,232,245,.52),
+          rgba(236,229,255,.42),
+          rgba(255,232,245,.52)
+        );
+
+      pointer-events:none;
     }
 
-    .page {
-      position: relative;
-      z-index: 1;
+    .container{
+      width:min(1240px,92%);
+      margin:0 auto;
     }
 
-    header {
-      width: 100%;
-      padding: 24px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:70px 0 110px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .logo{
+      width:min(560px,92vw);
+      margin-bottom:24px;
+
+      filter:
+        drop-shadow(0 12px 34px rgba(181,120,176,.25));
     }
 
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #9b5cff, #ffffff);
-      box-shadow: 0 0 25px rgba(155, 92, 255, 0.85);
+    .hero-subtitle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:10px 24px;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.48);
+
+      backdrop-filter:blur(14px);
+
+      border:1px solid rgba(255,210,237,.7);
+
+      color:#ca7fb4;
+
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.24em;
+
+      margin-bottom:24px;
     }
 
-    nav {
-      display: flex;
-      gap: 24px;
+    .hero h1{
+      font-size:clamp(38px,5vw,74px);
+
+      color:#744a87;
+
+      margin-bottom:22px;
+
+      letter-spacing:.06em;
+
+      text-shadow:
+        0 4px 18px rgba(255,255,255,.7);
     }
 
-    nav a {
-      color: rgba(255,255,255,0.72);
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.2s ease;
+    .hero-text{
+      max-width:760px;
+
+      margin:0 auto 40px;
+
+      line-height:2.2;
+
+      color:#675a78;
+
+      font-size:16px;
+      font-weight:500;
     }
 
-    nav a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 12px #a56bff;
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:16px;
     }
 
-    .hero {
-      min-height: calc(100vh - 84px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 8% 90px;
-      text-align: center;
-    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
 
-    .hero-card {
-      width: min(980px, 100%);
-      padding: 56px 32px;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 34px;
-      background: rgba(10, 8, 18, 0.62);
+      min-width:170px;
+
+      padding:14px 24px;
+
+      border-radius:999px;
+
+      text-decoration:none;
+
+      color:#88538e;
+
+      font-weight:700;
+
+      background:rgba(255,255,255,.52);
+
+      backdrop-filter:blur(14px);
+
+      border:1px solid rgba(255,205,234,.72);
+
       box-shadow:
-        0 0 80px rgba(120, 56, 255, 0.28),
-        inset 0 0 40px rgba(255,255,255,0.035);
-      backdrop-filter: blur(16px);
+        0 10px 28px rgba(192,138,184,.12);
+
+      transition:.22s ease;
     }
 
-    .logo-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 28px;
-    }
+    .btn.primary{
+      color:#fff;
 
-    .logo {
-      width: min(260px, 70vw);
-      height: auto;
-      filter: drop-shadow(0 0 30px rgba(170, 112, 255, 0.75));
-    }
-
-    .logo-placeholder {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 54px;
-      font-weight: 900;
-      letter-spacing: -0.08em;
-      color: white;
       background:
-        radial-gradient(circle at 35% 30%, #ffffff, #a56bff 35%, #3d1173 72%, #111 100%);
-      box-shadow: 0 0 55px rgba(165, 107, 255, 0.8);
+        linear-gradient(
+          135deg,
+          #f6a6d5,
+          #c1a4ff
+        );
+
+      border:none;
     }
 
-    .eyebrow {
-      color: #c7a7ff;
-      font-size: 14px;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+    .btn:hover{
+      transform:translateY(-4px);
+
+      box-shadow:
+        0 16px 36px rgba(214,144,196,.2);
     }
 
-    h1 {
-      font-size: clamp(42px, 8vw, 86px);
-      line-height: 1.02;
-      margin-bottom: 20px;
-      text-shadow: 0 0 35px rgba(155, 92, 255, 0.6);
+    section{
+      padding:100px 0;
     }
 
-    .lead {
-      max-width: 680px;
-      margin: 0 auto 34px;
-      color: rgba(255,255,255,0.76);
-      font-size: clamp(15px, 2vw, 18px);
-      line-height: 1.9;
+    .section-heading{
+      text-align:center;
+      margin-bottom:40px;
     }
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
+    .decor{
+      color:#f0a7d4;
+
+      font-size:13px;
+      font-weight:700;
+
+      letter-spacing:.26em;
+
+      margin-bottom:12px;
     }
 
-    .btn {
-      min-width: 150px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      background: rgba(255,255,255,0.08);
-      transition: 0.25s ease;
+    .section-heading h2{
+      font-size:clamp(32px,4vw,54px);
+
+      color:#9e5ea2;
+
+      letter-spacing:.08em;
+
+      margin-bottom:10px;
     }
 
-    .btn.primary {
-      background: linear-gradient(135deg, #8f4dff, #c7a7ff);
-      color: #0a0610;
-      box-shadow: 0 0 30px rgba(155, 92, 255, 0.5);
+    .section-heading p{
+      color:#85798f;
+
+      font-size:15px;
+      font-weight:500;
     }
 
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 30px rgba(155, 92, 255, 0.42);
-      border-color: rgba(199, 167, 255, 0.85);
+    .about-card{
+      max-width:980px;
+
+      margin:0 auto;
+
+      padding:42px;
+
+      border-radius:34px;
+
+      background:rgba(255,255,255,.52);
+
+      backdrop-filter:blur(18px);
+
+      border:1px solid rgba(255,210,235,.62);
+
+      box-shadow:
+        0 18px 60px rgba(198,142,187,.12);
     }
 
-    section {
-      padding: 80px 8%;
+    .about-card p{
+      line-height:2.2;
+
+      color:#6d617b;
+
+      font-weight:500;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: clamp(28px, 4vw, 46px);
-      margin-bottom: 18px;
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+
+      margin-top:30px;
     }
 
-    .section-text {
-      max-width: 760px;
-      margin: 0 auto 36px;
-      text-align: center;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.9;
+    .about-item{
+      padding:24px;
+
+      border-radius:24px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.7),
+          rgba(255,245,251,.52)
+        );
+
+      border:1px solid rgba(255,220,238,.7);
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      max-width: 1080px;
-      margin: 0 auto;
+    .about-item h3{
+      margin-bottom:10px;
+
+      color:#87528e;
+
+      font-size:20px;
     }
 
-    .card {
-      padding: 28px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.065);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.25);
+    .about-item p{
+      font-size:14px;
+      line-height:1.9;
     }
 
-    .card h3 {
-      margin-bottom: 12px;
-      color: #d8c3ff;
+    .rule-list-box{
+      max-width:1120px;
+
+      margin:0 auto;
+
+      padding:22px 34px;
+
+      border-radius:34px;
+
+      background:rgba(255,255,255,.5);
+
+      backdrop-filter:blur(18px);
+
+      border:1px solid rgba(255,210,235,.62);
+
+      box-shadow:
+        0 18px 60px rgba(198,142,187,.12);
+
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+
+      gap:0 34px;
     }
 
-    .card p {
-      color: rgba(255,255,255,0.68);
-      line-height: 1.8;
-      font-size: 14px;
+    .rule-row{
+      display:grid;
+      grid-template-columns:58px 1fr 28px;
+
+      gap:16px;
+
+      align-items:center;
+
+      padding:22px 0;
+
+      text-decoration:none;
+
+      color:inherit;
+
+      border-bottom:1px solid rgba(233,215,231,.8);
+
+      transition:.2s ease;
     }
 
-    footer {
-      padding: 36px 8%;
-      text-align: center;
-      color: rgba(255,255,255,0.45);
-      border-top: 1px solid rgba(255,255,255,0.08);
+    .rule-row:hover{
+      transform:translateX(5px);
     }
 
-    @media (max-width: 800px) {
-      header {
-        padding: 20px 6%;
+    .mini-icon{
+      width:52px;
+      height:52px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(circle at 30% 25%, #fff, transparent 45%),
+        linear-gradient(135deg,#ffe7f5,#efe4ff);
+
+      border:1px solid rgba(255,255,255,.9);
+
+      box-shadow:
+        0 6px 18px rgba(217,160,197,.15);
+
+      font-size:24px;
+    }
+
+    .rule-row h3{
+      color:#69468c;
+
+      font-size:21px;
+
+      margin-bottom:4px;
+    }
+
+    .rule-row p{
+      color:#82778e;
+
+      font-size:14px;
+      line-height:1.8;
+
+      font-weight:500;
+    }
+
+    .arrow{
+      color:#ff92cf;
+
+      font-size:34px;
+      font-weight:300;
+    }
+
+    .link-grid{
+      max-width:920px;
+      margin:0 auto;
+
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+
+      gap:24px;
+    }
+
+    .link-card{
+      min-height:165px;
+
+      padding:26px;
+
+      border-radius:30px;
+
+      background:rgba(255,255,255,.52);
+
+      backdrop-filter:blur(18px);
+
+      border:1px solid rgba(255,200,235,.55);
+
+      box-shadow:
+        0 10px 40px rgba(198,145,188,.10),
+        inset 0 1px 0 rgba(255,255,255,.65);
+
+      text-decoration:none;
+
+      color:#594070;
+
+      transition:.22s ease;
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .link-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.42),
+          transparent 38%
+        );
+
+      pointer-events:none;
+    }
+
+    .link-card:hover{
+      transform:translateY(-5px);
+
+      box-shadow:
+        0 18px 48px rgba(228,157,210,.18),
+        inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .link-icon{
+      width:62px;
+      height:62px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:18px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(circle at 30% 25%, #fff, transparent 45%),
+        linear-gradient(135deg,#ffe7f5,#efe4ff);
+
+      border:1px solid rgba(255,255,255,.85);
+
+      box-shadow:
+        0 6px 18px rgba(217,160,197,.16);
+
+      font-size:28px;
+    }
+
+    .link-card h3{
+      font-size:32px;
+
+      margin-bottom:10px;
+
+      color:#a05ba1;
+
+      font-weight:500;
+
+      letter-spacing:.03em;
+    }
+
+    .link-card p{
+      color:#7f748b;
+
+      font-weight:500;
+
+      line-height:1.9;
+
+      font-size:14px;
+    }
+
+    footer{
+      padding:36px 0 50px;
+
+      text-align:center;
+
+      color:#8c8098;
+
+      font-size:14px;
+      font-weight:500;
+    }
+
+    .footer-deco{
+      margin-top:12px;
+
+      color:#f2a7d5;
+
+      letter-spacing:.2em;
+    }
+
+    @media(max-width:980px){
+
+      .about-grid,
+      .rule-list-box,
+      .link-grid{
+        grid-template-columns:1fr;
       }
 
-      nav {
-        display: none;
+      .rule-row:last-child{
+        border-bottom:none;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .hero{
+        min-height:auto;
+        padding:60px 0 80px;
       }
 
-      .hero {
-        padding: 34px 6% 70px;
+      .logo{
+        width:min(390px,92vw);
       }
 
-      .hero-card {
-        padding: 42px 20px;
-        border-radius: 26px;
+      section{
+        padding:72px 0;
       }
 
-      .logo-placeholder {
-        width: 145px;
-        height: 145px;
-        font-size: 44px;
+      .about-card,
+      .rule-list-box{
+        padding:26px;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
+      .hero-text{
+        font-size:15px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="brand">
-        <div class="brand-mark"></div>
-        <span>Stella City</span>
+
+  <header class="hero" id="top">
+    <div class="container">
+
+      <img class="logo" src="logo.png" alt="Stella City Logo">
+
+      <div class="hero-subtitle">
+        ROLEPLAY COMMUNITY
       </div>
 
-      <nav>
-        <a href="#about">街の紹介</a>
-        <a href="#join">参加方法</a>
-        <a href="#shop">ショップ</a>
-        <a href="#discord">Discord</a>
-      </nav>
-    </header>
+      <h1>Stella Cityへようこそ</h1>
 
-    <main>
-      <section class="hero">
-        <div class="hero-card">
-          <div class="logo-wrap">
-            <!-- ロゴ画像を使う時は、下のdivを消して img のコメントを外してね -->
-            <!-- <img class="logo" src="logo.png" alt="Stella City Logo" /> -->
-            <div class="logo-placeholder">SC</div>
-          </div>
+      <p class="hero-text">
+        ここは、ひとりひとりの物語が星みたいに輝く街。<br>
+        ルールを守って、思いやりのあるRPを楽しみながら、
+        素敵な時間を過ごしましょう。
+      </p>
 
-          <p class="eyebrow">Roleplay Server</p>
-          <h1>Welcome to<br />Stella City.</h1>
-          <p class="lead">
-            黒と紫の夜に輝く、もうひとつの街。<br />
-            ここでは、あなたの選択が物語になる。
+      <div class="hero-buttons">
+        <a class="btn primary" href="#about">街の紹介</a>
+        <a class="btn" href="#rules">ルールを見る</a>
+        <a class="btn" href="#links">リンク集</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="decor">✦ INTRODUCTION ✦</div>
+          <h2>街の紹介</h2>
+          <p>Stella Cityで過ごす前に、街の雰囲気を少しだけ紹介します。</p>
+        </div>
+
+        <div class="about-card">
+
+          <p>
+            Stella Cityは、住民同士の関わりや日々の出来事から物語が生まれるRPサーバーです。
+            初心者の方も、長くRPを楽しんでいる方も、安心して過ごせる街を目指しています。
           </p>
 
-          <div class="buttons">
-            <a class="btn primary" href="#about">街の紹介</a>
-            <a class="btn" href="#join">参加方法</a>
-            <a class="btn" href="#shop">ショップ</a>
-            <a class="btn" href="#discord">Discord</a>
+          <div class="about-grid">
+
+            <div class="about-item">
+              <h3>🌙 優しい街づくり</h3>
+              <p>相手を尊重しながら、楽しいRPをみんなで作っていきます。</p>
+            </div>
+
+            <div class="about-item">
+              <h3>✨ 自由な物語</h3>
+              <p>仕事、交流、犯罪、イベントなど、あなたらしい過ごし方ができます。</p>
+            </div>
+
+            <div class="about-item">
+              <h3>🎀 安心サポート</h3>
+              <p>困った時はDiscordやチケットから運営へ相談できます。</p>
+            </div>
+
           </div>
+
         </div>
-      </section>
 
-      <section id="about">
-        <h2 class="section-title">街の紹介</h2>
-        <p class="section-text">
-          Stella Cityは、自由なロールプレイとコミュニティ交流を楽しめる街です。
-          住民同士の物語、仕事、イベント、ビジネスなど、さまざまな体験が待っています。
-        </p>
+      </div>
 
-        <div class="cards">
-          <div class="card">
-            <h3>自由なRP</h3>
-            <p>市民、警察、救急、ギャング、経営者など、あなたのなりたい姿で街に参加できます。</p>
-          </div>
-          <div class="card">
-            <h3>イベント</h3>
-            <p>街を盛り上げるイベントや企画を随時開催。参加するだけでも、主催する側でも楽しめます。</p>
-          </div>
-          <div class="card">
-            <h3>コミュニティ</h3>
-            <p>初心者でも入りやすい空気感を大切にしています。困った時はDiscordでサポートします。</p>
-          </div>
+    </section>
+
+    <section id="rules">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="decor">✦ RULE GUIDE ✦</div>
+          <h2>ルール</h2>
+          <p>項目をタップすると、それぞれの詳細ページへ移動します。</p>
         </div>
-      </section>
 
-      <section id="join">
-        <h2 class="section-title">参加方法</h2>
-        <p class="section-text">
-          Discordに参加して、ルール確認と案内に沿って申請してください。
-          初めての方でもわかりやすく参加できるように準備しています。
-        </p>
-      </section>
+        <div class="rule-list-box">
 
-      <section id="shop">
-        <h2 class="section-title">ショップ</h2>
-        <p class="section-text">
-          コミュニティ運営を応援したい方向けのショップです。
-          特典や内容は、公式ショップページをご確認ください。
-        </p>
-      </section>
+          <a class="rule-row" href="rules/terms.html">
+            <div class="mini-icon">💬</div>
+            <div>
+              <h3>利用規約</h3>
+              <p>Stella Cityを利用する上での基本的なルールや注意事項です。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
 
-      <section id="discord">
-        <h2 class="section-title">Discord</h2>
-        <p class="section-text">
-          最新情報、参加案内、イベント告知はDiscordでお知らせします。
-          下のリンクをあなたのDiscord招待URLに差し替えてください。
-        </p>
-        <div class="buttons">
-          <a class="btn primary" href="https://discord.gg/ここに招待URL" target="_blank">Discordに参加</a>
+          <a class="rule-row" href="rules/crime.html">
+            <div class="mini-icon">🔫</div>
+            <div>
+              <h3>犯罪ルール</h3>
+              <p>犯罪行為に関するルールや禁止事項です。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="rule-row" href="rules/public.html">
+            <div class="mini-icon">👮‍♀️</div>
+            <div>
+              <h3>公務員ルール</h3>
+              <p>警察や救急など、公務員として活動する際のルールです。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="rule-row" href="rules/gang.html">
+            <div class="mini-icon">⛓️</div>
+            <div>
+              <h3>ギャングルール</h3>
+              <p>ギャングとしての活動や制限に関するルールです。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="rule-row" href="rules/general.html">
+            <div class="mini-icon">🌎</div>
+            <div>
+              <h3>一般ルール</h3>
+              <p>すべての市民に共通する基本的な行動ルールです。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="rule-row" href="rules/crime-relation.html">
+            <div class="mini-icon">📜</div>
+            <div>
+              <h3>犯罪関係</h3>
+              <p>指名手配や逮捕、補填など犯罪に関する情報です。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="rule-row" href="rules/job.html">
+            <div class="mini-icon">👜</div>
+            <div>
+              <h3>ジョブルール</h3>
+              <p>各種ジョブや店舗運営に関するルールや条件です。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
+          <a class="rule-row" href="rules/gang-start.html">
+            <div class="mini-icon">⚖️</div>
+            <div>
+              <h3>ギャング設立条件</h3>
+              <p>ギャングを設立するための条件や申請手順です。</p>
+            </div>
+            <div class="arrow">›</div>
+          </a>
+
         </div>
-      </section>
-    </main>
 
-    <footer>
-      © 2026 Stella City. All Rights Reserved.
-    </footer>
-  </div>
+      </div>
+
+    </section>
+
+    <section id="links">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="decor">✦ OFFICIAL LINKS ✦</div>
+          <h2>リンク集</h2>
+          <p>Discord、ショップ、Xはこちらから。</p>
+        </div>
+
+        <div class="link-grid">
+
+          <a class="link-card" href="https://discord.gg/ここに招待URL" target="_blank">
+
+            <div class="link-icon">💬</div>
+
+            <h3>Discord</h3>
+
+            <p>
+              参加案内、告知、チケット、
+              サポートはこちら。
+            </p>
+
+          </a>
+
+          <a class="link-card" href="https://star-city.tebex.io/" target="_blank">
+
+            <div class="link-icon">🛒</div>
+
+            <h3>Shop</h3>
+
+            <p>
+              コミュニティ支援や
+              ショップページはこちら。
+            </p>
+
+          </a>
+
+          <a class="link-card" href="https://x.com/ここにID" target="_blank">
+
+            <div class="link-icon">🕊️</div>
+
+            <h3>X / Twitter</h3>
+
+            <p>
+              最新情報や
+              お知らせはこちら。
+            </p>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Stella City. All rights reserved.
+
+    <div class="footer-deco">
+      ✦ ───── ♡ ───── ✦
+    </div>
+  </footer>
+
 </body>
 </html>
