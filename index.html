@@ -110,14 +110,24 @@
       padding:70px 0 110px;
     }
 
+    .hero .container{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+
     .logo{
       display:block;
       width:min(560px,92vw);
       height:auto;
       margin:0 auto 24px;
 
+      transform-origin:center center;
+
       filter:
-        drop-shadow(0 12px 34px rgba(63,74,89,.22));
+        drop-shadow(0 10px 24px rgba(63,74,89,.18))
+        drop-shadow(0 0 18px rgba(206,149,176,.28));
 
       animation:logoFloat 4.8s ease-in-out infinite;
     }
@@ -422,6 +432,33 @@
       font-weight:300;
     }
 
+
+    .terms-small-link{
+      max-width:1120px;
+      margin:18px auto 0;
+      text-align:right;
+    }
+
+    .terms-small-link a{
+      display:inline-flex;
+      align-items:center;
+      color:var(--mauve);
+      text-decoration:none;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.04em;
+      opacity:.84;
+      transition:.25s ease;
+    }
+
+    .terms-small-link a:hover{
+      opacity:1;
+      color:var(--dusty-pink);
+      letter-spacing:.08em;
+      transform:translateX(3px);
+    }
+
+
     .link-grid{
       max-width:920px;
       margin:0 auto;
@@ -548,6 +585,57 @@
     }
 
 
+
+    .shooting-stars,
+    .snow-sparkles{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    .shooting-stars span{
+      position:absolute;
+      width:120px;
+      height:1px;
+      border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.9), rgba(206,149,176,.35));
+      box-shadow:0 0 18px rgba(255,255,255,.55);
+      opacity:0;
+      transform:rotate(-28deg);
+      animation:shootingStar 9s linear infinite;
+    }
+
+    .shooting-stars span:nth-child(1){ top:12%; left:-18%; animation-delay:1.2s; }
+    .shooting-stars span:nth-child(2){ top:34%; left:-28%; animation-delay:4.8s; width:90px; }
+    .shooting-stars span:nth-child(3){ top:58%; left:-22%; animation-delay:8.1s; width:140px; }
+
+    .snow-sparkles span{
+      position:absolute;
+      top:-20px;
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(255,255,255,.7);
+      box-shadow:
+        0 0 12px rgba(255,255,255,.8),
+        0 0 22px rgba(206,149,176,.35);
+      opacity:.75;
+      animation:snowFall 13s linear infinite;
+    }
+
+    .snow-sparkles span:nth-child(1){ left:6%; animation-delay:0s; animation-duration:12s; transform:scale(.7); }
+    .snow-sparkles span:nth-child(2){ left:16%; animation-delay:3s; animation-duration:15s; transform:scale(.45); }
+    .snow-sparkles span:nth-child(3){ left:27%; animation-delay:1.4s; animation-duration:11s; transform:scale(.6); }
+    .snow-sparkles span:nth-child(4){ left:39%; animation-delay:4.2s; animation-duration:16s; transform:scale(.5); }
+    .snow-sparkles span:nth-child(5){ left:52%; animation-delay:2.7s; animation-duration:14s; transform:scale(.75); }
+    .snow-sparkles span:nth-child(6){ left:63%; animation-delay:.9s; animation-duration:12s; transform:scale(.48); }
+    .snow-sparkles span:nth-child(7){ left:76%; animation-delay:5s; animation-duration:17s; transform:scale(.62); }
+    .snow-sparkles span:nth-child(8){ left:88%; animation-delay:2s; animation-duration:13s; transform:scale(.52); }
+    .snow-sparkles span:nth-child(9){ left:96%; animation-delay:6s; animation-duration:18s; transform:scale(.68); }
+
+
     .stella-sparkles{
       position:fixed;
       inset:0;
@@ -638,6 +726,40 @@
       }
     }
 
+
+    @keyframes shootingStar{
+      0%{
+        opacity:0;
+        transform:translate3d(0,0,0) rotate(-28deg);
+      }
+      6%{
+        opacity:.9;
+      }
+      16%{
+        opacity:0;
+        transform:translate3d(135vw,62vh,0) rotate(-28deg);
+      }
+      100%{
+        opacity:0;
+        transform:translate3d(135vw,62vh,0) rotate(-28deg);
+      }
+    }
+
+    @keyframes snowFall{
+      0%{
+        opacity:0;
+        transform:translate3d(0,-20px,0) scale(var(--scale,1));
+      }
+      12%{
+        opacity:.9;
+      }
+      100%{
+        opacity:0;
+        transform:translate3d(36px,105vh,0) scale(var(--scale,1));
+      }
+    }
+
+
     @media (prefers-reduced-motion: reduce){
       *,
       *::before,
@@ -645,6 +767,19 @@
         animation:none !important;
         transition:none !important;
       }
+    }
+
+
+
+    .reveal-ready{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal-ready.is-visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
 
@@ -689,6 +824,24 @@
 </head>
 
 <body>
+
+  <div class="shooting-stars" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="snow-sparkles" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
   <div class="stella-sparkles" aria-hidden="true">
     <span></span>
@@ -855,6 +1008,10 @@
 
         </div>
 
+        <div class="terms-small-link">
+          <a href="rules/terms.html">利用規約はこちら ＞</a>
+        </div>
+
       </div>
 
     </section>
@@ -925,6 +1082,29 @@
       ✦ ───── ♡ ───── ✦
     </div>
   </footer>
+
+
+  <script>
+    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .link-card');
+
+    revealTargets.forEach((target, index) => {
+      target.classList.add('reveal-ready');
+      target.style.transitionDelay = `${Math.min(index * 35, 260)}ms`;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    revealTargets.forEach(target => observer.observe(target));
+  </script>
 
 </body>
 </html>
