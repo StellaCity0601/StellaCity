@@ -840,50 +840,74 @@
       }
     }
 
-    /* =========================
-    Shop画像 少し小さく
-    ========================= */
+    /* =================================
+    FINAL FIX
+    ================================= */
+    
+    /* Shopメイン画像 */
     
     .shop-card .link-icon img{
-      width:108px;
-      height:108px;
+      width:102px;
+      height:102px;
+    
+      object-fit:contain;
+    
+      display:block;
+    
+      margin:0 auto;
     }
     
-    /* =========================
-    X/Twitter のズレ修正
-    ========================= */
+    /* Shopタイトル */
     
-    .link-card:last-child h3{
+    .shop-card h3{
+      margin-top:8px;
+      margin-bottom:20px;
+    
       font-size:28px;
+    
+      text-align:center;
+    }
+    
+    /* Xタイトル */
+    
+    .link-grid .link-card:nth-child(3) h3{
+      font-size:26px;
     
       line-height:1.4;
     
-      text-align:center;
+      margin-top:10px;
     
-      margin-top:6px;
-      margin-bottom:12px;
+      text-align:center;
     }
     
-    /* =========================
-    Shopボタンの文字 大きく
-    ========================= */
+    /* 説明文 */
     
-    .shop-link-buttons a{
-      padding:14px 16px;
-    
+    .link-card p{
       font-size:15px;
     
-      font-weight:700;
+      line-height:2;
+    
+      color:var(--soft);
     }
     
-    /* =========================
-    ボタン内画像
-    ========================= */
+    /* ボタン */
+    
+    .shop-link-buttons{
+      margin-top:14px;
+    }
+    
+    .shop-link-buttons a{
+      padding:13px 16px;
+    
+      font-size:14px;
+      font-weight:700;
+    
+      border-radius:16px;
+    }
+    
+    /* アイコン共通 */
     
     .shop-mini-icon{
-      width:60px;
-      height:60px;
-    
       display:flex;
       align-items:center;
       justify-content:center;
@@ -891,47 +915,52 @@
       flex-shrink:0;
     }
     
-    .shop-mini-icon img{
-      width:100%;
-      height:100%;
+    /* テベックス画像 */
     
-      object-fit:contain;
-    }
-    
-    /* =========================
-    矢印
-    ========================= */
-    
-    .shop-arrow{
-      font-size:22px;
-    }
-    /* Shopタイトルのズレ修正 */
-    .shop-card h3{
-      margin-top:-6px;
-      margin-bottom:18px;
-    }
-    
-    /* 全カードの説明文を少し大きく */
-    .link-card p{
-      font-size:15px;
-      line-height:1.9;
-    }
-    
-    /* Shopボタンの文字も少し大きく */
-    .shop-link-buttons a{
-      font-size:14px;
-    }
-    
-    /* テベックス画像だけ少し小さく */
     .shop-link-buttons a:first-child .shop-mini-icon{
       width:46px;
       height:46px;
     }
     
-    /* 内容画像は見えやすく */
+    /* 内容画像 */
+    
     .shop-link-buttons a:last-child .shop-mini-icon{
-      width:54px;
-      height:54px;
+      width:52px;
+      height:52px;
+    }
+    
+    /* 中の画像 */
+    
+    .shop-mini-icon img{
+      width:100%;
+      height:100%;
+    
+      object-fit:contain;
+    
+      display:block;
+    }
+    
+    /* 矢印 */
+    
+    .shop-arrow{
+      font-size:22px;
+    
+      color:#ffb6df;
+    }
+    
+    /* 利用規約 */
+    
+    .terms-small-link{
+      margin-top:30px;
+    
+      text-align:center;
+    }
+    
+    .terms-small-link img{
+      width:50px;
+      height:50px;
+    
+      object-fit:contain;
     }
   </style>
 </head>
