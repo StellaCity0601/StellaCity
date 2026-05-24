@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Stella City</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,21 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --dusty-pink:#CE95B0;
-      --night-navy:#3F4A59;
-      --mauve:#A67189;
-      --pale-pink:#E5C1D4;
-      --mist-blue:#2B4365;
 
-      --text:#3F4A59;
-      --soft-text:#6E6171;
-      --accent:#CE95B0;
-      --accent-deep:#A67189;
-      --glass:rgba(255,255,255,.46);
-      --glass-strong:rgba(255,255,255,.62);
-      --line:rgba(206,149,176,.42);
-      --shadow:rgba(63,74,89,.14);
+    :root{
+      --pink:#f2a7d3;
+      --pink-deep:#d986b7;
+      --text:#fff4fc;
+      --soft:#dbc7d7;
+
+      --glass:rgba(18,15,36,.72);
+      --line:rgba(242,167,211,.24);
+
+      --shadow:rgba(0,0,0,.38);
     }
 
     *{
@@ -45,12 +42,7 @@
       font-family:"Zen Maru Gothic",sans-serif;
       color:var(--text);
 
-      background:#f8eef4;
-    }
-
-    h1,h2,h3{
-      font-family:"Kaisei Decol",serif;
-      font-weight:700;
+      background:#070914;
     }
 
     body::before{
@@ -60,499 +52,61 @@
       z-index:-2;
 
       background:
-        linear-gradient(to bottom,
-          rgba(229,193,212,.20) 0%,
-          rgba(229,193,212,.72) 46%,
-          #f8eef4 88%
-        ),
-
-        radial-gradient(circle at top,
-          rgba(255,255,255,.82),
-          transparent 38%
-        ),
-
-        url("background.png") center top / cover no-repeat;
-
-      filter:saturate(1.05);
-    }
-
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-1;
-
-      background:
         linear-gradient(
-          to right,
-          rgba(206,149,176,.34),
-          rgba(43,67,101,.18),
-          rgba(206,149,176,.34)
-        );
+          to bottom,
+          rgba(8,8,20,.18),
+          rgba(8,8,20,.75)
+        ),
 
-      pointer-events:none;
+        url("background.png") center center / cover no-repeat;
     }
 
     .container{
-      width:min(1240px,92%);
-      margin:0 auto;
-    }
-
-    .hero{
-      min-height:100vh;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      text-align:center;
-
-      padding:70px 0 110px;
-    }
-
-    .hero .container{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .logo{
-      display:block;
-      width:min(560px,92vw);
-      height:auto;
-      margin:0 auto 24px;
-
-      transform-origin:center center;
-
-      filter:
-        drop-shadow(0 10px 24px rgba(63,74,89,.18))
-        drop-shadow(0 0 18px rgba(206,149,176,.28));
-
-      animation:logoFloat 4.8s ease-in-out infinite;
-    }
-
-    .hero-subtitle{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      padding:10px 24px;
-
-      border-radius:999px;
-
-      background:rgba(255,255,255,.42);
-
-      backdrop-filter:blur(14px);
-
-      border:1px solid rgba(206,149,176,.45);
-
-      color:var(--mauve);
-
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:.24em;
-
-      margin-bottom:24px;
-    }
-
-    .hero h1{
-      font-size:clamp(38px,5vw,74px);
-
-      color:var(--night-navy);
-
-      margin-bottom:22px;
-
-      letter-spacing:.06em;
-
-      text-shadow:
-        0 4px 18px rgba(255,255,255,.7);
-    }
-
-    .hero-text{
-      max-width:760px;
-
-      margin:0 auto 40px;
-
-      line-height:2.2;
-
-      color:var(--soft-text);
-
-      font-size:16px;
-      font-weight:500;
-    }
-
-    .hero-buttons{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:16px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      min-width:170px;
-
-      padding:14px 24px;
-
-      border-radius:999px;
-
-      text-decoration:none;
-
-      color:var(--mauve);
-
-      font-weight:700;
-
-      background:var(--glass);
-
-      backdrop-filter:blur(14px);
-
-      border:1px solid var(--line);
-
-      box-shadow:
-        0 10px 28px var(--shadow);
-
-      transition:.22s ease;
-    }
-
-    .btn.primary{
-      color:#fff;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--dusty-pink),
-          var(--mauve),
-          var(--mist-blue)
-        );
-
-      border:none;
-    }
-
-    .btn:hover{
-      transform:translateY(-4px);
-
-      box-shadow:
-        0 16px 36px rgba(166,113,137,.22);
+      width:min(1180px,92%);
+      margin:auto;
     }
 
     section{
-      padding:100px 0;
+      padding:110px 0;
     }
 
     .section-heading{
       text-align:center;
-      margin-bottom:40px;
+      margin-bottom:54px;
     }
 
     .decor{
-      color:var(--dusty-pink);
-
-      font-size:13px;
+      color:#ffb8df;
+      letter-spacing:.3em;
+      font-size:12px;
       font-weight:700;
-
-      letter-spacing:.26em;
-
-      margin-bottom:12px;
+      margin-bottom:10px;
     }
 
     .section-heading h2{
-      font-size:clamp(32px,4vw,54px);
-
-      color:var(--mauve);
-
-      letter-spacing:.08em;
-
-      margin-bottom:10px;
+      font-size:clamp(48px,6vw,86px);
+      font-family:"Kaisei Decol",serif;
+      color:#ffd8ef;
+      margin-bottom:14px;
     }
 
     .section-heading p{
-      color:var(--soft-text);
-
-      font-size:15px;
-      font-weight:500;
+      color:#f5d7ea;
+      font-size:18px;
     }
-
-    .about-card{
-      max-width:980px;
-
-      margin:0 auto;
-
-      padding:42px;
-
-      border-radius:34px;
-
-      background:var(--glass);
-
-      backdrop-filter:blur(18px);
-
-      border:1px solid var(--line);
-
-      box-shadow:
-        0 18px 60px var(--shadow);
-    }
-
-    .about-card p{
-      line-height:2.2;
-
-      color:var(--soft-text);
-
-      font-weight:500;
-    }
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-
-      margin-top:30px;
-    }
-
-    .about-item{
-      padding:24px;
-
-      border-radius:24px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.7),
-          rgba(229,193,212,.36)
-        );
-
-      border:1px solid rgba(229,193,212,.55);
-    }
-
-    .about-item h3{
-      margin-bottom:10px;
-
-      color:var(--mauve);
-
-      font-size:20px;
-    }
-
-    .about-item p{
-      font-size:14px;
-      line-height:1.9;
-    }
-
-    .rule-list-box{
-      max-width:1180px;
-
-      margin:0 auto;
-
-      padding:28px 38px;
-
-      border-radius:34px;
-
-      background:var(--glass);
-
-      backdrop-filter:blur(18px);
-
-      border:1px solid var(--line);
-
-      box-shadow:
-        0 18px 60px var(--shadow);
-
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-
-      gap:0 34px;
-    }
-
-    .rule-row{
-      display:grid;
-      grid-template-columns:82px minmax(0,1fr) 42px;
-
-      gap:18px;
-
-      align-items:center;
-
-      padding:24px 0;
-
-      text-decoration:none;
-
-      color:inherit;
-
-      border-bottom:1px solid rgba(206,149,176,.28);
-
-      transition:.2s ease;
-    }
-
-    .rule-row:hover{
-      transform:translateX(5px);
-    }
-
-    .mini-icon{
-      width:72px;
-      height:72px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      background:none;
-      border:none;
-      box-shadow:none;
-      border-radius:0;
-
-      font-size:24px;
-      overflow:visible;
-    }
-
-    .mini-icon img{
-      object-fit:contain;
-      object-position:center;
-      display:block;
-      max-width:none;
-      max-height:none;
-      pointer-events:none;
-    }
-
-    /* 禁止事項 */
-    .rule-row:nth-child(1) .mini-icon img{
-      width:70px;
-      height:70px;
-      transform:translateY(1px);
-    }
-    
-    /* 一般ルール */
-    .rule-row:nth-child(2) .mini-icon img{
-      width:82px;
-      height:82px;
-      transform:translateY(1px);
-    }
-    
-    /* 公務員ルール ← 少し上 */
-    .rule-row:nth-child(3) .mini-icon img{
-      width:70px;
-      height:70px;
-      transform:translateY(-8px);
-    }
-    
-    /* ジョブルール ← 少し下 */
-    .rule-row:nth-child(4) .mini-icon img{
-      width:82px;
-      height:82px;
-      transform:translateY(8px);
-    }
-    
-    /* 犯罪ルール ← 少し上 */
-    .rule-row:nth-child(5) .mini-icon img{
-      width:70px;
-      height:70px;
-      transform:translateY(-8px);
-    }
-    
-    /* 犯罪関係 ← 小さく */
-    .rule-row:nth-child(6) .mini-icon img{
-      width:68px;
-      height:68px;
-      transform:translateY(1px);
-    }
-    
-    /* ギャングルール */
-    .rule-row:nth-child(7) .mini-icon img{
-      width:70px;
-      height:70px;
-      transform:translateY(1px);
-    }
-    
-    /* ギャング設立条件 */
-    .rule-row:nth-child(8) .mini-icon img{
-      width:82px;
-      height:82px;
-      transform:translateY(1px);
-    }
-
-    .rule-row h3{
-      color:var(--night-navy);
-
-      font-size:22px;
-
-      margin-bottom:4px;
-    }
-
-    .rule-row p{
-      color:var(--soft-text);
-
-      font-size:15px;
-      line-height:1.8;
-
-      font-weight:500;
-    }
-
-    .arrow{
-      width:34px;
-      height:34px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      justify-self:center;
-      align-self:center;
-      color:var(--dusty-pink);
-      font-size:34px;
-      line-height:1;
-      font-weight:300;
-      transform:translateY(-1px);
-    }
-
-
-    .terms-small-link{
-      max-width:1120px;
-      margin:18px auto 0;
-      text-align:right;
-    }
-
-    .terms-small-link a{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color:var(--mauve);
-      text-decoration:none;
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:.04em;
-      opacity:.9;
-      transition:.25s ease;
-    }
-
-    .terms-small-link img{
-      width:30px;
-      height:30px;
-      object-fit:contain;
-      object-position:center;
-      display:block;
-      filter:drop-shadow(0 4px 10px rgba(166,113,137,.18));
-    }
-
-    .terms-small-link a:hover{
-      opacity:1;
-      color:var(--dusty-pink);
-      letter-spacing:.08em;
-      transform:translateX(3px);
-    }
-
 
     .link-grid{
-      max-width:920px;
-      margin:0 auto;
-
       display:grid;
       grid-template-columns:repeat(3,1fr);
-
-      gap:24px;
+      gap:26px;
     }
 
     .link-card{
-      min-height:165px;
+      min-height:420px;
 
-      padding:26px;
+      padding:36px 30px;
 
-      border-radius:30px;
+      border-radius:38px;
 
       background:var(--glass);
 
@@ -561,17 +115,19 @@
       border:1px solid var(--line);
 
       box-shadow:
-        0 10px 40px var(--shadow),
-        inset 0 1px 0 rgba(255,255,255,.65);
-
-      text-decoration:none;
-
-      color:var(--text);
-
-      transition:.22s ease;
+        0 10px 40px var(--shadow);
 
       position:relative;
       overflow:hidden;
+
+      text-decoration:none;
+      color:var(--text);
+
+      transition:.25s ease;
+    }
+
+    .link-card:hover{
+      transform:translateY(-6px);
     }
 
     .link-card::before{
@@ -582,659 +138,330 @@
       background:
         linear-gradient(
           135deg,
-          rgba(255,255,255,.42),
+          rgba(255,255,255,.08),
           transparent 38%
         );
 
       pointer-events:none;
     }
 
-    .link-card:hover{
-      transform:translateY(-5px);
-
-      box-shadow:
-        0 18px 48px rgba(166,113,137,.20),
-        inset 0 1px 0 rgba(255,255,255,.8);
-    }
-
     .link-icon{
-      width:62px;
-      height:62px;
+      width:92px;
+      height:92px;
+
+      margin:0 auto 28px;
+
+      border-radius:50%;
 
       display:flex;
       align-items:center;
       justify-content:center;
 
-      margin-bottom:18px;
-
-      border-radius:50%;
-
       background:
-        radial-gradient(circle at 30% 25%, #fff, transparent 45%),
-        linear-gradient(135deg,#F2D4E2,#E5C1D4);
-
-      border:1px solid rgba(255,255,255,.85);
+        linear-gradient(
+          135deg,
+          #ffc6e7,
+          #d986b7
+        );
 
       box-shadow:
-        0 6px 18px rgba(217,160,197,.16);
+        0 0 28px rgba(242,167,211,.28);
 
-      font-size:28px;
+      overflow:hidden;
+    }
+
+    .link-icon img{
+      width:62px;
+      height:62px;
+      object-fit:contain;
+      display:block;
     }
 
     .link-card h3{
-      font-size:32px;
+      text-align:center;
 
-      margin-bottom:10px;
+      font-size:64px;
 
-      color:var(--mauve);
+      line-height:1.1;
 
-      font-weight:500;
+      margin-bottom:22px;
 
-      letter-spacing:.03em;
+      color:#fff;
+
+      font-family:"Kaisei Decol",serif;
+      font-weight:700;
     }
 
     .link-card p{
-      color:var(--soft-text);
-
-      font-weight:500;
+      text-align:center;
 
       line-height:1.9;
 
-      font-size:14px;
-    }
+      font-size:16px;
 
-    footer{
-      padding:36px 0 50px;
+      color:var(--soft);
 
-      text-align:center;
-
-      color:var(--soft-text);
-
-      font-size:14px;
       font-weight:500;
     }
 
-    header,
-    main,
-    footer{
-      position:relative;
-      z-index:1;
+    .shop-card{
+      cursor:default;
     }
 
-    .footer-deco{
-      margin-top:12px;
+    .shop-link-buttons{
+      display:flex;
+      flex-direction:column;
 
-      color:var(--dusty-pink);
+      gap:16px;
 
-      letter-spacing:.2em;
+      margin-top:34px;
     }
 
+    .shop-link-buttons a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
+      padding:16px 18px;
 
-    .shooting-stars,
-    .snow-sparkles{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      overflow:hidden;
+      border-radius:18px;
+
+      text-decoration:none;
+
+      color:#ffe0f1;
+
+      background:
+        rgba(255,255,255,.04);
+
+      border:1px solid rgba(242,167,211,.24);
+
+      transition:.22s ease;
     }
 
-    .shooting-stars span{
-      position:absolute;
-      width:112px;
-      height:18px;
-      opacity:0;
-      pointer-events:none;
+    .shop-link-buttons a:hover{
+      transform:translateX(4px);
 
-      /* 左上 → 右下にちゃんと流れる、シンプルできれいな尾 */
-      transform-origin:right center;
-      animation:simpleShootingStar 4.6s linear infinite;
-      filter:
-        drop-shadow(0 0 8px rgba(255,255,255,.9))
-        drop-shadow(0 0 16px rgba(255,198,228,.45));
+      background:
+        rgba(242,167,211,.12);
     }
 
-    .shooting-stars span::before{
-      content:"";
-      position:absolute;
-      right:0;
-      top:50%;
-      width:9px;
-      height:9px;
-      border-radius:50%;
-      transform:translateY(-50%);
-      background:rgba(255,255,255,.98);
-      box-shadow:
-        0 0 10px rgba(255,255,255,.95),
-        0 0 18px rgba(255,207,232,.72);
+    .shop-link-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      font-size:15px;
+      font-weight:700;
     }
 
-    .shooting-stars span::after{
-      content:"";
-      position:absolute;
-      right:7px;
-      top:50%;
-      width:104px;
-      height:2px;
-      border-radius:999px;
-      transform:translateY(-50%);
-      background:linear-gradient(90deg,
-        rgba(255,255,255,.95) 0%,
-        rgba(255,235,247,.55) 30%,
-        rgba(255,221,240,.16) 70%,
-        rgba(255,255,255,0) 100%
-      );
+    .shop-mini-icon{
+      width:22px;
+      height:22px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    .shooting-stars span:nth-child(1){ top:8%;  left:-10%; animation-delay:.4s;  --s:1; }
-    .shooting-stars span:nth-child(2){ top:14%; left:72%; animation-delay:2.8s; --s:.82; }
-    .shooting-stars span:nth-child(3){ top:36%; left:12%; animation-delay:5.2s; --s:.72; }
-    .shooting-stars span:nth-child(4){ top:20%; left:88%; animation-delay:7.8s; --s:.66; }
-    .shooting-stars span:nth-child(5){ top:58%; left:48%; animation-delay:10.2s; --s:.78; }
-
-    .snow-sparkles span{
-      position:absolute;
-      top:-20px;
-      width:6px;
-      height:6px;
-      border-radius:999px;
-      background:rgba(255,255,255,.7);
-      box-shadow:
-        0 0 12px rgba(255,255,255,.8),
-        0 0 22px rgba(206,149,176,.35);
-      opacity:.75;
-      animation:snowFall 13s linear infinite;
+    .shop-mini-icon img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
     }
 
-    .snow-sparkles span:nth-child(1){ left:6%; animation-delay:0s; animation-duration:12s; transform:scale(.7); }
-    .snow-sparkles span:nth-child(2){ left:16%; animation-delay:3s; animation-duration:15s; transform:scale(.45); }
-    .snow-sparkles span:nth-child(3){ left:27%; animation-delay:1.4s; animation-duration:11s; transform:scale(.6); }
-    .snow-sparkles span:nth-child(4){ left:39%; animation-delay:4.2s; animation-duration:16s; transform:scale(.5); }
-    .snow-sparkles span:nth-child(5){ left:52%; animation-delay:2.7s; animation-duration:14s; transform:scale(.75); }
-    .snow-sparkles span:nth-child(6){ left:63%; animation-delay:.9s; animation-duration:12s; transform:scale(.48); }
-    .snow-sparkles span:nth-child(7){ left:76%; animation-delay:5s; animation-duration:17s; transform:scale(.62); }
-    .snow-sparkles span:nth-child(8){ left:88%; animation-delay:2s; animation-duration:13s; transform:scale(.52); }
-    .snow-sparkles span:nth-child(9){ left:96%; animation-delay:6s; animation-duration:18s; transform:scale(.68); }
-
-
-    .stella-sparkles{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      overflow:hidden;
+    .shop-arrow{
+      color:#ffb6df;
+      font-size:24px;
+      font-weight:700;
     }
 
-    .stella-sparkles span{
-      position:absolute;
-      width:4px;
-      height:4px;
-      border-radius:999px;
-      background:rgba(206,149,176,.75);
-      box-shadow:0 0 18px rgba(206,149,176,.75);
-      animation:sparkle 4.5s ease-in-out infinite;
+    .terms-small-link{
+      margin-top:36px;
+      text-align:right;
     }
 
-    .stella-sparkles span:nth-child(1){ left:8%; top:18%; animation-delay:.2s; }
-    .stella-sparkles span:nth-child(2){ left:22%; top:72%; animation-delay:1.1s; }
-    .stella-sparkles span:nth-child(3){ left:38%; top:14%; animation-delay:2s; }
-    .stella-sparkles span:nth-child(4){ left:58%; top:78%; animation-delay:.7s; }
-    .stella-sparkles span:nth-child(5){ left:74%; top:22%; animation-delay:1.6s; }
-    .stella-sparkles span:nth-child(6){ left:88%; top:64%; animation-delay:2.6s; }
+    .terms-small-link a{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
 
-    .hero .container,
-    .about-card,
-    .rule-list-box,
-    .link-card{
-      animation:fadeUp .8s ease both;
+      color:#ffd9ef;
+
+      text-decoration:none;
+
+      font-size:14px;
+      font-weight:700;
+
+      transition:.2s ease;
     }
 
-    .rule-row,
-    .about-item,
-    .btn{
-      position:relative;
-      overflow:hidden;
+    .terms-small-link a:hover{
+      opacity:.8;
     }
 
-    .rule-row::before,
-    .about-item::before,
-    .btn::before,
-    .link-card::after{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.38), transparent 65%);
-      transform:translateX(-120%) rotate(8deg);
-      transition:.7s ease;
-      pointer-events:none;
+    .terms-small-link img{
+      width:28px;
+      height:28px;
+      object-fit:contain;
     }
-
-    .rule-row:hover::before,
-    .about-item:hover::before,
-    .btn:hover::before,
-    .link-card:hover::after{
-      transform:translateX(120%) rotate(8deg);
-    }
-
-    @keyframes logoFloat{
-      0%,100%{
-        transform:translateY(0);
-      }
-      50%{
-        transform:translateY(-10px);
-      }
-    }
-
-    @keyframes sparkle{
-      0%,100%{
-        opacity:.18;
-        transform:scale(.7);
-      }
-      50%{
-        opacity:1;
-        transform:scale(1.45);
-      }
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(18px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-
-    @keyframes simpleShootingStar{
-      0%{
-        opacity:0;
-        transform:translate3d(0,0,0) rotate(26deg) scale(var(--s,1));
-      }
-      8%{
-        opacity:0;
-      }
-      13%{
-        opacity:.95;
-      }
-      30%{
-        opacity:.95;
-      }
-      42%{
-        opacity:0;
-        transform:translate3d(85vw,28vh,0) rotate(26deg) scale(var(--s,1));
-      }
-      100%{
-        opacity:0;
-        transform:translate3d(85vw,28vh,0) rotate(26deg) scale(var(--s,1));
-      }
-    }
-
-    @keyframes snowFall{
-      0%{
-        opacity:0;
-        transform:translate3d(0,-20px,0) scale(var(--scale,1));
-      }
-      12%{
-        opacity:.9;
-      }
-      100%{
-        opacity:0;
-        transform:translate3d(36px,105vh,0) scale(var(--scale,1));
-      }
-    }
-
-
-    @media (prefers-reduced-motion: reduce){
-      *,
-      *::before,
-      *::after{
-        animation:none !important;
-        transition:none !important;
-      }
-    }
-
-
-
-    .reveal-ready{
-      opacity:0;
-      transform:translateY(22px);
-      transition:opacity .75s ease, transform .75s ease;
-    }
-
-    .reveal-ready.is-visible{
-      opacity:1;
-      transform:translateY(0);
-    }
-
 
     @media(max-width:980px){
 
-      .about-grid,
-      .rule-list-box,
       .link-grid{
         grid-template-columns:1fr;
       }
 
-      .rule-row:last-child{
-        border-bottom:none;
+      .link-card{
+        min-height:auto;
+      }
+
+      .link-card h3{
+        font-size:52px;
       }
     }
 
     @media(max-width:768px){
 
-      .hero{
-        min-height:auto;
-        padding:60px 0 80px;
+      .section-heading h2{
+        font-size:58px;
       }
 
-      .logo{
-        width:min(390px,92vw);
+      .link-card{
+        padding:30px 24px;
       }
 
-      section{
-        padding:72px 0;
-      }
-
-      .about-card,
-      .rule-list-box{
-        padding:26px;
-      }
-
-      .hero-text{
-        font-size:15px;
+      .link-card h3{
+        font-size:42px;
       }
     }
+
   </style>
 </head>
 
 <body>
 
-  <div class="shooting-stars" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <section id="links">
 
-  <div class="snow-sparkles" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <div class="stella-sparkles" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <header class="hero" id="top">
     <div class="container">
 
-      <img class="logo" src="logo.png" alt="Stella City Logo">
+      <div class="section-heading">
+        <div class="decor">✦ OFFICIAL LINKS ✦</div>
 
-      <div class="hero-subtitle">
-        ROLEPLAY COMMUNITY
+        <h2>リンク集</h2>
+
+        <p>
+          Discord、ショップ、Xはこちらから。
+        </p>
       </div>
 
-      <h1>Stella Cityへようこそ</h1>
+      <div class="link-grid">
 
-      <p class="hero-text">
-        ここは、ひとりひとりの物語が星みたいに輝く街。<br>
-        ルールを守って、思いやりのあるRPを楽しみながら、
-        素敵な時間を過ごしましょう。
-      </p>
+        <!-- Discord -->
+        <a class="link-card"
+           href="https://discord.gg/ここに招待URL"
+           target="_blank">
 
-      <div class="hero-buttons">
-        <a class="btn primary" href="#about">街の紹介</a>
-        <a class="btn" href="#rules">ルールを見る</a>
-        <a class="btn" href="#links">リンク集</a>
-      </div>
+          <div class="link-icon">
+            <img src="images/discord.png" alt="Discord">
+          </div>
 
-    </div>
-  </header>
-
-  <main>
-
-    <section id="about">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="decor">✦ INTRODUCTION ✦</div>
-          <h2>街の紹介</h2>
-          <p>Stella Cityで過ごす前に、街の雰囲気を少しだけ紹介します。</p>
-        </div>
-
-        <div class="about-card">
+          <h3>Discord</h3>
 
           <p>
-            Stella Cityは、住民同士の関わりや日々の出来事から物語が生まれるRPサーバーです。
-            初心者の方も、長くRPを楽しんでいる方も、安心して過ごせる街を目指しています。
+            参加案内、告知、チケット、
+            サポートはこちら。
           </p>
 
-          <div class="about-grid">
+        </a>
 
-            <div class="about-item">
-              <h3>🌙 優しい街づくり</h3>
-              <p>相手を尊重しながら、楽しいRPをみんなで作っていきます。</p>
-            </div>
+        <!-- Shop -->
+        <div class="link-card shop-card">
 
-            <div class="about-item">
-              <h3>✨ 自由な物語</h3>
-              <p>仕事、交流、犯罪、イベントなど、あなたらしい過ごし方ができます。</p>
-            </div>
+          <div class="link-icon">
+            <img src="images/shop.png" alt="Shop">
+          </div>
 
-            <div class="about-item">
-              <h3>🎀 安心サポート</h3>
-              <p>困った時はDiscordやチケットから運営へ相談できます。</p>
-            </div>
+          <h3>Shop</h3>
+
+          <div class="shop-link-buttons">
+
+            <a href="https://star-city.tebex.io/"
+               target="_blank">
+
+              <div class="shop-link-left">
+
+                <div class="shop-mini-icon">
+                  <img src="images/tebex.png" alt="Tebex">
+                </div>
+
+                テベックスはこちら
+
+              </div>
+
+              <div class="shop-arrow">
+                ＞
+              </div>
+
+            </a>
+
+            <a href="rules/terms.html">
+
+              <div class="shop-link-left">
+
+                <div class="shop-mini-icon">
+                  <img src="images/content.png" alt="内容">
+                </div>
+
+                内容はこちら
+
+              </div>
+
+              <div class="shop-arrow">
+                ＞
+              </div>
+
+            </a>
 
           </div>
 
         </div>
 
-      </div>
+        <!-- X -->
+        <a class="link-card"
+           href="https://x.com/ここにID"
+           target="_blank">
 
-    </section>
+          <div class="link-icon">
+            <img src="images/x.png" alt="X">
+          </div>
 
-    <section id="rules">
+          <h3>X /<br>Twitter</h3>
 
-      <div class="container">
+          <p>
+            最新情報や
+            お知らせはこちら。
+          </p>
 
-        <div class="section-heading">
-          <div class="decor">✦ RULE GUIDE ✦</div>
-          <h2>ルール</h2>
-          <p>項目をタップすると、それぞれの詳細ページへ移動します。</p>
-        </div>
-
-        <div class="rule-list-box">
-
-          <a class="rule-row" href="rules/prohibited.html">
-            <div class="mini-icon"><img src="images/prohibited.png" alt="禁止事項"></div>
-            <div>
-              <h3>禁止事項</h3>
-              <p>サーバー内で禁止されている行為一覧です。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-          <a class="rule-row" href="rules/general.html">
-            <div class="mini-icon"><img src="images/general.png" alt="一般ルール"></div>
-            <div>
-              <h3>一般ルール</h3>
-              <p>すべての市民に共通する基本的な行動ルールです。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-          <a class="rule-row" href="rules/police.html">
-            <div class="mini-icon"><img src="images/police.png" alt="公務員ルール"></div>
-            <div>
-              <h3>公務員ルール</h3>
-              <p>警察や救急など、公務員として活動する際のルールです。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-          <a class="rule-row" href="rules/job.html">
-            <div class="mini-icon"><img src="images/job.png" alt="ジョブルール"></div>
-            <div>
-              <h3>ジョブルール</h3>
-              <p>各種ジョブや店舗運営に関するルールや条件です。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-          <a class="rule-row" href="rules/crime.html">
-            <div class="mini-icon"><img src="images/crime.png" alt="犯罪ルール"></div>
-            <div>
-              <h3>犯罪ルール</h3>
-              <p>犯罪行為に関するルールや禁止事項です。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-          <a class="rule-row" href="rules/crime-relation.html">
-            <div class="mini-icon"><img src="images/crime-relation.png" alt="犯罪関係"></div>
-            <div>
-              <h3>犯罪関係</h3>
-              <p>強盗規模・参加人数・車両制限に関する情報です。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-          <a class="rule-row" href="rules/gang.html">
-            <div class="mini-icon"><img src="images/gang.png" alt="ギャングルール"></div>
-            <div>
-              <h3>ギャングルール</h3>
-              <p>ギャングとしての活動や制限に関するルールです。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-          <a class="rule-row" href="rules/gang-start.html">
-            <div class="mini-icon"><img src="images/gang-start.png" alt="ギャング設立条件"></div>
-            <div>
-              <h3>ギャング設立条件</h3>
-              <p>ギャングを設立するための条件や申請手順です。</p>
-            </div>
-            <div class="arrow">›</div>
-          </a>
-
-        </div>
-
-        <div class="terms-small-link">
-          <a href="rules/terms.html"><img src="images/terms.png" alt="利用規約">利用規約はこちら ＞</a>
-        </div>
+        </a>
 
       </div>
 
-    </section>
+      <div class="terms-small-link">
 
-    <section id="links">
+        <a href="rules/terms.html">
 
-      <div class="container">
+          <img src="images/content.png" alt="利用規約">
 
-        <div class="section-heading">
-          <div class="decor">✦ OFFICIAL LINKS ✦</div>
-          <h2>リンク集</h2>
-          <p>Discord、ショップ、Xはこちらから。</p>
-        </div>
+          利用規約はこちら ＞
 
-        <div class="link-grid">
-
-          <a class="link-card" href="https://discord.gg/ここに招待URL" target="_blank">
-
-            <div class="link-icon">💬</div>
-
-            <h3>Discord</h3>
-
-            <p>
-              参加案内、告知、チケット、
-              サポートはこちら。
-            </p>
-
-          </a>
-
-          <a class="link-card" href="https://star-city.tebex.io/" target="_blank">
-
-            <div class="link-icon">🛒</div>
-
-            <h3>Shop</h3>
-
-            <p>
-              コミュニティ支援や
-              ショップページはこちら。
-            </p>
-
-          </a>
-
-          <a class="link-card" href="https://x.com/ここにID" target="_blank">
-
-            <div class="link-icon">🕊️</div>
-
-            <h3>X / Twitter</h3>
-
-            <p>
-              最新情報や
-              お知らせはこちら。
-            </p>
-
-          </a>
-
-        </div>
+        </a>
 
       </div>
 
-    </section>
-
-  </main>
-
-  <footer>
-    © 2026 Stella City. All rights reserved.
-
-    <div class="footer-deco">
-      ✦ ───── ♡ ───── ✦
     </div>
-  </footer>
 
-
-  <script>
-    const revealTargets = document.querySelectorAll('.about-card, .about-item, .rule-list-box, .rule-row, .terms-small-link, .link-card');
-
-    revealTargets.forEach((target, index) => {
-      target.classList.add('reveal-ready');
-      target.style.transitionDelay = `${Math.min(index * 35, 260)}ms`;
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12
-    });
-
-    revealTargets.forEach(target => observer.observe(target));
-  </script>
+  </section>
 
 </body>
 </html>
