@@ -90,6 +90,66 @@
     }
 
     /* =========================
+       TOP NAV
+    ========================= */
+
+    .top-nav{
+      position:fixed;
+
+      top:24px;
+      right:30px;
+
+      z-index:9999;
+
+      display:flex;
+      align-items:center;
+
+      gap:12px;
+    }
+
+    .top-nav a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:10px 18px;
+
+      border-radius:999px;
+
+      text-decoration:none;
+
+      color:#fff;
+
+      font-size:13px;
+      font-weight:700;
+
+      background:rgba(18,16,34,.72);
+
+      border:1px solid rgba(242,167,211,.24);
+
+      backdrop-filter:blur(14px);
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,.22);
+
+      transition:.22s ease;
+    }
+
+    .top-nav a:hover{
+      transform:translateY(-3px);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,180,222,.18),
+          rgba(217,134,183,.18)
+        );
+
+      border-color:
+        rgba(255,180,222,.45);
+    }
+
+    /* =========================
        HERO
     ========================= */
 
@@ -737,6 +797,22 @@
 
     @media(max-width:768px){
 
+      .top-nav{
+        top:16px;
+        right:16px;
+
+        gap:8px;
+
+        flex-wrap:wrap;
+
+        justify-content:flex-end;
+      }
+
+      .top-nav a{
+        padding:8px 14px;
+        font-size:12px;
+      }
+
       .hero{
         min-height:auto;
 
@@ -769,6 +845,27 @@
 
 <body>
 
+  <!-- TOP NAV -->
+
+  <nav class="top-nav">
+
+    <a href="https://discord.gg/ここに招待URL"
+       target="_blank">
+      Discord
+    </a>
+
+    <a href="https://x.com/ここにID"
+       target="_blank">
+      X
+    </a>
+
+    <a href="https://star-city.tebex.io/"
+       target="_blank">
+      Shop
+    </a>
+
+  </nav>
+
   <!-- HERO -->
 
   <header class="hero" id="top">
@@ -799,390 +896,15 @@
           リンク集
         </a>
 
+        <a class="btn" href="rules/terms.html">
+          利用規約
+        </a>
+
       </div>
 
     </div>
 
   </header>
-
-  <!-- ABOUT -->
-
-  <section id="about">
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <div class="decor">
-          ✦ INTRODUCTION ✦
-        </div>
-
-        <h2>街の紹介</h2>
-
-        <p>
-          Stella Cityで過ごす前に、
-          街の雰囲気を少しだけ紹介します。
-        </p>
-
-      </div>
-
-      <div class="about-card intro-main">
-
-        <div class="intro-text">
-
-          <p>
-            Stella Cityは、住民同士の関わりや日々の出来事から
-            物語が生まれるRPサーバーです。<br><br>
-
-            初心者の方も、
-            長くRPを楽しんでいる方も、
-            安心して過ごせる街を目指しています。
-          </p>
-
-        </div>
-
-        <div class="intro-feature-grid">
-
-          <div class="intro-feature">
-
-            <h3>🌙 優しい街づくり</h3>
-
-            <p>
-              相手を尊重しながら、
-              楽しいRPをみんなで作っていきます。
-            </p>
-
-          </div>
-
-          <div class="intro-feature">
-
-            <h3>✨ 自由な物語</h3>
-
-            <p>
-              仕事、交流、犯罪、イベントなど、
-              あなたらしい過ごし方ができます。
-            </p>
-
-          </div>
-
-          <div class="intro-feature">
-
-            <h3>🎀 安心サポート</h3>
-
-            <p>
-              困った時はDiscordやチケットから
-              運営へ相談できます。
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- MLO -->
-
-      <div class="section-heading sub-heading">
-
-        <div class="decor">
-          ✦ CITY MLO INTRODUCTION ✦
-        </div>
-
-        <h2>街中MLO紹介</h2>
-
-        <p>
-          Stella Cityの街並みや施設の一部をご紹介します。
-        </p>
-
-      </div>
-
-      <div class="mlo-scroll">
-
-        <div class="mlo-card">
-          <img src="images/mlo-1.png" alt="">
-          <span>ダウンタウン</span>
-        </div>
-
-        <div class="mlo-card">
-          <img src="images/mlo-2.png" alt="">
-          <span>ロスサントス警察署</span>
-        </div>
-
-        <div class="mlo-card">
-          <img src="images/mlo-3.png" alt="">
-          <span>ピルボックス病院</span>
-        </div>
-
-        <div class="mlo-card">
-          <img src="images/mlo-4.png" alt="">
-          <span>デル・ペロ・ピア</span>
-        </div>
-
-        <div class="mlo-card">
-          <img src="images/mlo-5.png" alt="">
-          <span>バインウッド・ヒルズ</span>
-        </div>
-
-      </div>
-
-      <!-- SCRIPT -->
-
-      <div class="section-heading sub-heading">
-
-        <div class="decor">
-          ✦ STELLA CITY ORIGINAL SCRIPT ✦
-        </div>
-
-        <h2>Originalスクリプト紹介</h2>
-
-        <p>
-          Stella Cityオリジナルシステムの一部をご紹介します。
-        </p>
-
-      </div>
-
-      <!-- SCRIPT 1 -->
-
-      <div class="script-card">
-
-        <div class="script-info">
-
-          <div class="script-number">
-            01
-          </div>
-
-          <div>
-
-            <h3>一個目</h3>
-
-            <p>
-              Stella Cityでしか体験できない
-              オリジナル機能です。
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="script-images">
-
-          <img src="images/script-1a.png" alt="">
-          <img src="images/script-1b.png" alt="">
-
-        </div>
-
-      </div>
-
-      <!-- SCRIPT 2 -->
-
-      <div class="script-card">
-
-        <div class="script-info">
-
-          <div class="script-number">
-            02
-          </div>
-
-          <div>
-
-            <h3>二個目</h3>
-
-            <p>
-              住民同士の交流や街での生活がもっと広がる、
-              Stella Cityらしいシステムです。
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="script-images">
-
-          <img src="images/script-2a.png" alt="">
-          <img src="images/script-2b.png" alt="">
-
-        </div>
-
-      </div>
-
-      <!-- SCRIPT 3 -->
-
-      <div class="script-card">
-
-        <div class="script-info">
-
-          <div class="script-number">
-            03
-          </div>
-
-          <div>
-
-            <h3>三個目</h3>
-
-            <p>
-              街での行動やロールプレイをより快適にする、
-              オリジナル要素を導入しています。
-            </p>
-
-          </div>
-
-        </div>
-
-        <div class="script-images">
-
-          <img src="images/script-3a.png" alt="">
-          <img src="images/script-3b.png" alt="">
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- LINKS -->
-
-  <section id="links">
-
-    <div class="container">
-
-      <div class="section-heading">
-
-        <div class="decor">
-          ✦ OFFICIAL LINKS ✦
-        </div>
-
-        <h2>リンク集</h2>
-
-        <p>
-          Discord、ショップ、Xはこちらから。
-        </p>
-
-      </div>
-
-      <div class="link-grid">
-
-        <!-- Discord -->
-
-        <a class="link-card"
-           href="https://discord.gg/ここに招待URL"
-           target="_blank">
-
-          <div class="link-icon">
-            <img src="images/discord.png" alt="Discord">
-          </div>
-
-          <h3>Discord</h3>
-
-          <p>
-            参加案内、告知、チケット、
-            サポートはこちら。
-          </p>
-
-        </a>
-
-        <!-- Shop -->
-
-        <div class="link-card shop-card">
-
-          <div class="link-icon">
-            <img src="images/shop.png" alt="Shop">
-          </div>
-
-          <h3>Shop</h3>
-
-          <div class="shop-link-buttons">
-
-            <a href="https://star-city.tebex.io/"
-               target="_blank">
-
-              <div class="shop-link-left">
-
-                <div class="shop-mini-icon">
-                  <img src="images/tebex.png" alt="">
-                </div>
-
-                テベックスはこちら
-
-              </div>
-
-              <div class="shop-arrow">
-                ＞
-              </div>
-
-            </a>
-
-            <a href="rules/naiyou.html">
-
-              <div class="shop-link-left">
-
-                <div class="shop-mini-icon">
-                  <img src="images/content.png" alt="">
-                </div>
-
-                内容はこちら
-
-              </div>
-
-              <div class="shop-arrow">
-                ＞
-              </div>
-
-            </a>
-
-          </div>
-
-        </div>
-
-        <!-- X -->
-
-        <a class="link-card"
-           href="https://x.com/ここにID"
-           target="_blank">
-
-          <div class="link-icon">
-            <img src="images/x.png" alt="X">
-          </div>
-
-          <h3>X / Twitter</h3>
-
-          <p>
-            最新情報や
-            お知らせはこちら。
-          </p>
-
-        </a>
-
-      </div>
-
-      <!-- TERMS -->
-
-      <div class="terms-small-link">
-
-        <a href="rules/terms.html">
-
-          <img src="images/terms.png" alt="">
-
-          利用規約はこちら ＞
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <footer>
-
-    © 2026 Stella City. All rights reserved.
-
-    <div class="footer-deco">
-      ✦ ───── ♡ ───── ✦
-    </div>
-
-  </footer>
 
 </body>
 </html>
