@@ -694,8 +694,8 @@
     }
 
     .shop-mini-icon{
-      width:48px;
-      height:48px;
+      width:44px;
+      height:44px;
     
       display:flex;
       align-items:center;
@@ -904,6 +904,34 @@
     
     .shop-arrow{
       font-size:22px;
+    }
+    /* Shopタイトルのズレ修正 */
+    .shop-card h3{
+      margin-top:-6px;
+      margin-bottom:18px;
+    }
+    
+    /* 全カードの説明文を少し大きく */
+    .link-card p{
+      font-size:15px;
+      line-height:1.9;
+    }
+    
+    /* Shopボタンの文字も少し大きく */
+    .shop-link-buttons a{
+      font-size:14px;
+    }
+    
+    /* テベックス画像だけ少し小さく */
+    .shop-link-buttons a:first-child .shop-mini-icon{
+      width:46px;
+      height:46px;
+    }
+    
+    /* 内容画像は見えやすく */
+    .shop-link-buttons a:last-child .shop-mini-icon{
+      width:54px;
+      height:54px;
     }
   </style>
 </head>
