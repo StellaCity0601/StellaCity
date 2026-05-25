@@ -408,43 +408,31 @@
     /* =========================
        MLO
     ========================= */
-
+    
     .mlo-scroll{
-      display:flex;
-
-      gap:18px;
-
-      overflow-x:auto;
-
-      padding-bottom:16px;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:22px;
+    
+      max-width:980px;
+      margin:0 auto;
+      padding-bottom:0;
+    
+      overflow:visible;
     }
-
+    
     .mlo-scroll::-webkit-scrollbar{
-      height:8px;
+      display:none;
     }
-
-    .mlo-scroll::-webkit-scrollbar-thumb{
-      background:#d986b7;
-      border-radius:999px;
-    }
-
-    /* =========================
-       MLO 画像サイズ統一
-    ========================= */
     
     .mlo-card{
-      min-width:420px;
-    
-      height:340px;
-    
-      flex-shrink:0;
+      width:100%;
+      height:330px;
     
       border-radius:22px;
-    
       overflow:hidden;
     
       background:var(--glass);
-    
       border:1px solid var(--line);
     
       box-shadow:
@@ -456,16 +444,14 @@
     
     .mlo-card img{
       width:100%;
-    
-      height:285px;
+      height:270px;
     
       object-fit:cover;
-    
       display:block;
     }
     
     .mlo-card span{
-      height:55px;
+      height:60px;
     
       display:flex;
       align-items:center;
@@ -474,46 +460,19 @@
       font-size:14px;
       font-weight:700;
     }
-
-    /* =========================
-       MLO 完全固定
-    ========================= */
     
-    .mlo-scroll{
-      display:flex !important;
-      align-items:stretch !important;
-      gap:18px !important;
-      overflow-x:auto !important;
-      padding-bottom:16px !important;
-    }
+    @media(max-width:768px){
+      .mlo-scroll{
+        grid-template-columns:1fr;
+      }
     
-    .mlo-card{
-      width:480px !important;
-      min-width:480px !important;
-      height:330px !important;
-      flex:0 0 480px !important;
+      .mlo-card{
+        height:300px;
+      }
     
-      display:flex !important;
-      flex-direction:column !important;
-    
-      border-radius:22px !important;
-      overflow:hidden !important;
-    }
-    
-    .mlo-card img{
-      width:100% !important;
-      height:270px !important;
-    
-      object-fit:cover !important;
-      display:block !important;
-    }
-    
-    .mlo-card span{
-      height:60px !important;
-    
-      display:flex !important;
-      align-items:center !important;
-      justify-content:center !important;
+      .mlo-card img{
+        height:240px;
+      }
     }
 
     /* =========================
