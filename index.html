@@ -428,39 +428,49 @@
       border-radius:999px;
     }
 
+    /* =========================
+       MLO 画像サイズ統一
+    ========================= */
+    
     .mlo-card{
-      min-width:240px;
-
+      min-width:420px;
+    
+      height:340px;
+    
       flex-shrink:0;
-
+    
       border-radius:22px;
-
+    
       overflow:hidden;
-
+    
       background:var(--glass);
-
+    
       border:1px solid var(--line);
-
+    
       box-shadow:
         0 10px 28px rgba(0,0,0,.22);
+    
+      display:flex;
+      flex-direction:column;
     }
-
+    
     .mlo-card img{
       width:100%;
-      height:270px;
-
+    
+      height:285px;
+    
       object-fit:cover;
-
+    
       display:block;
     }
-
+    
     .mlo-card span{
-      display:block;
-
-      padding:14px;
-
-      text-align:center;
-
+      height:55px;
+    
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    
       font-size:14px;
       font-weight:700;
     }
