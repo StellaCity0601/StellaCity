@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Stella City Subscription</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#f2a7d3;
+      --text:#fff4fc;
+      --soft:#d9c7d6;
+      --glass:rgba(18,16,34,.72);
+      --line:rgba(242,167,211,.24);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      min-height:100vh;
+      font-family:"Zen Maru Gothic",sans-serif;
+      color:var(--text);
+      background:#090b16;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:
+        linear-gradient(to bottom, rgba(8,8,20,.18), rgba(8,8,20,.9)),
+        url("../background.png") center center / cover no-repeat;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:
+        linear-gradient(
+          to right,
+          rgba(242,167,211,.08),
+          rgba(45,53,80,.18),
+          rgba(242,167,211,.08)
+        );
+      pointer-events:none;
+    }
+
+    h1,h2,h3{
+      font-family:"Kaisei Decol",serif;
+      font-weight:700;
+    }
+
+    .container{
+      width:min(1180px,92%);
+      margin:0 auto;
+    }
+
+    .page-header{
+      padding:90px 0 50px;
+      text-align:center;
+    }
+
+    .back-link{
+      display:inline-flex;
+      margin-bottom:34px;
+      padding:10px 20px;
+      border-radius:999px;
+      color:#ffd9ef;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+      background:rgba(18,16,34,.68);
+      border:1px solid var(--line);
+      backdrop-filter:blur(14px);
+    }
+
+    .decor{
+      color:#ffb4de;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.26em;
+      margin-bottom:14px;
+    }
+
+    h1{
+      font-size:clamp(38px,5vw,68px);
+      margin-bottom:20px;
+      color:#fff;
+      text-shadow:0 4px 18px rgba(0,0,0,.55);
+    }
+
+    .lead{
+      max-width:760px;
+      margin:0 auto;
+      color:var(--soft);
+      line-height:2.1;
+      font-size:15px;
+      font-weight:500;
+    }
+
+    .sub-scroll{
+      display:flex;
+      gap:24px;
+      overflow-x:auto;
+      overflow-y:hidden;
+      padding:20px 0 26px;
+      scroll-behavior:smooth;
+    }
+
+    .sub-scroll::-webkit-scrollbar{
+      height:8px;
+    }
+
+    .sub-scroll::-webkit-scrollbar-thumb{
+      background:#d986b7;
+      border-radius:999px;
+    }
+
+    .sub-card{
+      flex:1;
+      min-width:280px;
+      max-width:340px;
+      padding:32px;
+      border-radius:30px;
+      background:var(--glass);
+      border:1px solid var(--line);
+      backdrop-filter:blur(18px);
+      box-shadow:0 14px 44px rgba(0,0,0,.3);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .sub-card.normal{
+      border-color:rgba(255,255,255,.16);
+    }
+
+    .sub-card.gold{
+      border-color:rgba(255,215,120,.46);
+      box-shadow:
+        0 14px 44px rgba(0,0,0,.3),
+        0 0 26px rgba(255,215,120,.08);
+    }
+
+    .sub-card.black{
+      border-color:rgba(255,120,200,.48);
+      box-shadow:
+        0 14px 44px rgba(0,0,0,.3),
+        0 0 28px rgba(255,120,200,.10);
+    }
+
+    .sub-label{
+      display:inline-flex;
+      width:max-content;
+      padding:7px 14px;
+      border-radius:999px;
+      margin-bottom:18px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      color:#ffd9ef;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(242,167,211,.22);
+    }
+
+    .sub-card h2{
+      font-size:38px;
+      margin-bottom:8px;
+      color:#fff;
+    }
+
+    .price{
+      font-size:48px;
+      font-weight:700;
+      color:#ffb4de;
+      margin-bottom:22px;
+    }
+
+    .sub-text{
+      color:var(--soft);
+      line-height:2.05;
+      font-size:14px;
+    }
+
+    .note{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:16px;
+      color:#ffd9ef;
+      background:rgba(242,167,211,.07);
+      border:1px solid rgba(242,167,211,.18);
+      font-size:13px;
+      line-height:1.8;
+    }
+
+    .line{
+      width:100%;
+      height:1px;
+      background:rgba(255,255,255,.10);
+      margin:26px 0;
+    }
+
+    .benefit-title{
+      margin-bottom:14px;
+      color:#fff;
+      font-size:18px;
+      font-weight:700;
+    }
+
+    .benefits{
+      display:flex;
+      flex-direction:column;
+      gap:13px;
+    }
+
+    .benefits div{
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.06);
+      color:#fff;
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .footer-note{
+      max-width:900px;
+      margin:42px auto 80px;
+      padding:24px;
+      border-radius:24px;
+      text-align:center;
+      color:var(--soft);
+      line-height:2;
+      font-size:13px;
+      background:rgba(18,16,34,.58);
+      border:1px solid rgba(242,167,211,.18);
+      backdrop-filter:blur(14px);
+    }
+
+    footer{
+      padding:34px 0 48px;
+      text-align:center;
+      color:var(--soft);
+      font-size:13px;
+    }
+
+    .footer-deco{
+      margin-top:12px;
+      color:#ffb4de;
+      letter-spacing:.2em;
+    }
+
+    @media(max-width:768px){
+      .page-header{
+        padding:70px 0 36px;
+      }
+
+      .sub-card{
+        flex:0 0 88vw;
+        min-height:auto;
+        padding:28px;
+      }
+
+      .sub-card h2{
+        font-size:34px;
+      }
+
+      .price{
+        font-size:42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="page-header">
+    <div class="container">
+
+      <a class="back-link" href="../index.html">
+        ← トップへ戻る
+      </a>
+
+      <div class="decor">
+        ✦ MEMBERSHIP SUPPORT ✦
+      </div>
+
+      <h1>サブスクリプション</h1>
+
+      <p class="lead">
+        Stella Cityを応援してくださる方向けの月額サポートプランです。<br>
+        皆さまからのご支援は、スクリプト・MLO・新システム制作費として使用され、
+        より楽しい街づくりへと繋がります。
+      </p>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="sub-scroll">
+
+      <!-- NORMAL -->
+
+      <section class="sub-card normal">
+
+        <div class="sub-label">
+          NORMAL PLAN
+        </div>
+
+        <h2>ノーマル</h2>
+
+        <div class="price">
+          $10
+        </div>
+
+        <p class="sub-text">
+          Stella Cityを応援してくださる方向けの、
+          月額10ドルのサポートプランです。
+        </p>
+
+        <div class="note">
+          ご支援へのお礼として、限定アイテムなどの特典プレゼントをご用意しております。
+        </div>
+
+        <div class="line"></div>
+
+        <div class="benefit-title">
+          ✦ プレゼント例
+        </div>
+
+        <div class="benefits">
+          <div>特別な食事セット ×10<br>1個使用で全50回復</div>
+          <div>動物変身カード ×5</div>
+          <div>アーマー＆弾薬セット</div>
+          <div>人格追加 または 性転換</div>
+          <div>車ガチャ券</div>
+        </div>
+
+      </section>
+
+      <!-- GOLD -->
+
+      <section class="sub-card gold">
+
+        <div class="sub-label">
+          GOLD PLAN
+        </div>
+
+        <h2>ゴールド</h2>
+
+        <div class="price">
+          $30
+        </div>
+
+        <p class="sub-text">
+          Stella Cityをより深く応援してくださる方向けの、
+          月額30ドルのサポートプランです。
+        </p>
+
+        <div class="note">
+          新しい物語やコンテンツ制作を支える、充実した特典付きプランです。
+        </div>
+
+        <div class="line"></div>
+
+        <div class="benefit-title">
+          ✦ プレゼント例
+        </div>
+
+        <div class="benefits">
+          <div>特別な食事セット ×20<br>1個使用で全50回復</div>
+          <div>動物変身カード ×5</div>
+          <div>アーマー＆弾薬セット</div>
+          <div>人格追加 または 性転換</div>
+          <div>車ガチャ券</div>
+          <div>オーナー権 または ギャングボス権</div>
+          <div>MLO導入権</div>
+        </div>
+
+      </section>
+
+      <!-- BLACK -->
+
+      <section class="sub-card black">
+
+        <div class="sub-label">
+          BLACK PLAN
+        </div>
+
+        <h2>ブラック</h2>
+
+        <div class="price">
+          $50
+        </div>
+
+        <p class="sub-text">
+          Stella Cityを大きく支援してくださる方向けの、
+          最上位月額サポートプランです。
+        </p>
+
+        <div class="note">
+          大型コンテンツ制作や街のさらなる進化を支える、豪華特典付きプランです。
+        </div>
+
+        <div class="line"></div>
+
+        <div class="benefit-title">
+          ✦ プレゼント例
+        </div>
+
+        <div class="benefits">
+          <div>特別な食事セット ×30<br>1個使用で全50回復</div>
+          <div>動物変身カード ×10</div>
+          <div>アーマー＆弾薬セット</div>
+          <div>人格追加2人分 または 性転換</div>
+          <div>車ガチャ券</div>
+          <div>オーナー権 または ギャングボス権</div>
+          <div>MLO導入権</div>
+          <div>ヘリコプター1台支給<br>初月限定</div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <div class="footer-note">
+      ※プレゼント内容は一例です。内容は変更となる場合があります。<br>
+      ※サブスクリプション特典は、契約期間中のみ適用される場合があります。
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 Stella City. All rights reserved.
+
+    <div class="footer-deco">
+      ✦ ───── ♡ ───── ✦
+    </div>
+  </footer>
+
+</body>
+</html>
