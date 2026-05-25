@@ -494,6 +494,65 @@
         height:245px;
       }
     }
+    /* =========================
+       MLO 横スクロール強制
+    ========================= */
+    
+    .mlo-scroll{
+      display:flex !important;
+      flex-wrap:nowrap !important;
+    
+      gap:22px !important;
+    
+      width:100% !important;
+      max-width:100% !important;
+    
+      overflow-x:scroll !important;
+      overflow-y:hidden !important;
+    
+      padding-bottom:18px !important;
+    }
+    
+    .mlo-card{
+      flex:0 0 520px !important;
+      width:520px !important;
+      min-width:520px !important;
+      max-width:520px !important;
+    
+      height:340px !important;
+    
+      display:flex !important;
+      flex-direction:column !important;
+    
+      border-radius:24px !important;
+      overflow:hidden !important;
+    }
+    
+    .mlo-card img{
+      width:100% !important;
+      height:285px !important;
+    
+      object-fit:cover !important;
+      display:block !important;
+    }
+    
+    .mlo-card span{
+      height:55px !important;
+    
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+    }
+    
+    /* スクロールバー */
+    .mlo-scroll::-webkit-scrollbar{
+      height:8px !important;
+    }
+    
+    .mlo-scroll::-webkit-scrollbar-thumb{
+      background:#d986b7 !important;
+      border-radius:999px !important;
+    }
 
     /* =========================
        SCRIPT
