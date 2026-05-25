@@ -113,10 +113,19 @@
 
     .sub-scroll{
       display:flex;
+      justify-content:flex-start;
       gap:24px;
+    
+      width:100%;
+      max-width:1180px;
+    
+      margin:34px auto 0;
+    
       overflow-x:auto;
       overflow-y:hidden;
+    
       padding:20px 0 26px;
+    
       scroll-behavior:smooth;
     }
 
@@ -268,9 +277,10 @@
       }
 
       .sub-card{
-        flex:0 0 88vw;
-        min-height:auto;
-        padding:28px;
+        flex:0 0 360px;
+        min-height:690px;
+        padding:32px;
+        border-radius:30px;
       }
 
       .sub-card h2{
